@@ -2,6 +2,21 @@
   publish = "."
 
 [[redirects]]
+  from = "/thicongpccc"
+  to = "/landing-v3.html"
+  status = 200
+
+[[redirects]]
+  from = "/landing-v3"
+  to = "/landing-v3.html"
+  status = 200
+
+[[redirects]]
+  from = "/v3"
+  to = "/landing-v3.html"
+  status = 200
+
+[[redirects]]
   from = "/landing-v2"
   to = "/landing-v2.html"
   status = 200
