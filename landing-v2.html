@@ -3,24 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PCCC24 2.0 - Tổng Kho Thiết Bị PCCC Chính Hãng | Tem BCA & Tính Toán Dự Toán</title>
-  <meta name="description" content="Giao diện mới PCCC24.com - Thiết bị phòng cháy chữa cháy 100% tem kiểm định Bộ Công An. Tích hợp công cụ tính toán thiết bị PCCC thông minh theo diện tích chuẩn TCVN 3890.">
+  <title>PCCC24 2.0 - Tổng Kho Thiết Bị PCCC Chính Hãng & Tra Cứu Quy Chuẩn QCVN 10:2025</title>
+  <meta name="description" content="PCCC24.com - Thiết bị PCCC 100% tem kiểm định Bộ Công An. Tích hợp công cụ tra cứu quy chuẩn thiết kế PCCC theo Nghị định 105/2025 & QCVN 10:2025/BCA, tính toán dung tích nước và dự toán thiết bị.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=IBM+Plex+Mono:wght@400;600;700&display=swap" rel="stylesheet">
   <!-- Tailwind CSS via allowlisted CDN -->
   <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
   <style>
     body {
       font-family: 'Be Vietnam Pro', system-ui, -apple-system, sans-serif;
     }
+    .font-mono-code {
+      font-family: 'IBM Plex Mono', monospace, ui-monospace;
+    }
     .hero-glow {
       background: radial-gradient(circle at 50% 20%, rgba(239, 68, 68, 0.15), transparent 70%);
-    }
-    .glass-card {
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(226, 232, 240, 0.8);
     }
     .badge-bca {
       background: linear-gradient(135deg, #fef08a 0%, #fde047 100%);
@@ -36,6 +34,10 @@
     .navy-gradient {
       background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
     }
+    @media print {
+      .no-print { display: none !important; }
+      #phieu-ket-qua { display: block !important; border: 2px solid #000; padding: 20px; }
+    }
   </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-red-500 selection:text-white pb-20 lg:pb-0">
@@ -43,14 +45,14 @@
   <!-- ======================================================== -->
   <!-- 0. TOP VERSION SWITCHER BANNER -->
   <!-- ======================================================== -->
-  <div class="bg-slate-900 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+  <div class="bg-slate-900 text-slate-300 text-xs py-2 px-4 border-b border-slate-800 no-print">
     <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
       <div class="flex items-center gap-2">
         <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-red-600/30 text-red-400 border border-red-500/40">
           ✨ Giao diện Mới 2.0 (Smart Portal)
         </span>
         <span class="hidden sm:inline text-slate-400">|</span>
-        <span class="hidden sm:inline text-slate-300 font-medium">Tự động tính dự toán PCCC & Đặt mua siêu tốc</span>
+        <span class="hidden sm:inline text-slate-300 font-medium">Tích hợp Tra cứu Quy chuẩn QCVN 10:2025 & NĐ 105/2025</span>
       </div>
       <div class="flex items-center gap-3 ml-auto">
         <a href="index.html" class="inline-flex items-center gap-1.5 text-amber-400 hover:text-amber-300 font-medium transition-colors bg-slate-800/80 px-2.5 py-1 rounded-md border border-slate-700 hover:border-slate-600">
@@ -68,7 +70,7 @@
   <!-- ======================================================== -->
   <!-- 1. MAIN HEADER & NAVIGATION -->
   <!-- ======================================================== -->
-  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm no-print">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-20">
         <!-- Logo -->
@@ -83,19 +85,20 @@
             <div class="text-2xl font-black tracking-tight text-slate-900 leading-none">
               PCCC<span class="text-red-600">24</span><span class="text-xs ml-1 font-semibold text-slate-400">.COM</span>
             </div>
-            <p class="text-xs font-semibold text-slate-500 tracking-wide mt-1 uppercase">Hoàng Quân Phát • PCCC Chính Hãng</p>
+            <p class="text-xs font-semibold text-slate-500 tracking-wide mt-1 uppercase">Hoàng Quân Phát • Thiết Bị & Tra Cứu PCCC</p>
           </div>
         </a>
 
         <!-- Desktop Navigation -->
-        <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-700">
-          <a href="#estimator" class="hover:text-red-600 transition-colors flex items-center gap-1.5 text-red-600">
-            <span class="w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
-            Tính Dự Toán PCCC
+        <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-700">
+          <a href="#tra-cuu-pccc" class="hover:text-red-600 transition-colors flex items-center gap-1.5 text-red-600 bg-red-50 px-3 py-1.5 rounded-lg border border-red-200">
+            <span class="w-2 h-2 rounded-full bg-red-600 animate-ping"></span>
+            🔍 Tra Cứu Quy Chuẩn PCCC
           </a>
+          <a href="#estimator" class="hover:text-red-600 transition-colors">Tính Dự Toán</a>
           <a href="#products" class="hover:text-red-600 transition-colors">Danh Mục Thiết Bị</a>
           <a href="#solutions" class="hover:text-red-600 transition-colors">Gia Đình & Dự Án</a>
-          <a href="#bca-trust" class="hover:text-red-600 transition-colors">Tem Kiểm Định</a>
+          <a href="#bca-trust" class="hover:text-red-600 transition-colors">Tem BCA</a>
           <a href="#faq" class="hover:text-red-600 transition-colors">Hỏi Đáp</a>
         </nav>
 
@@ -134,18 +137,18 @@
           </div>
 
           <h1 class="text-3xl sm:text-5xl lg:text-5xl font-black text-slate-950 tracking-tight leading-[1.15]">
-            Giải Pháp Phòng Cháy An Toàn <br class="hidden sm:block">
-            <span class="text-transparent bg-clip-text fire-gradient">100% Tem Kiểm Định BCA</span>
+            Giải Pháp PCCC Chuẩn Quy Định <br class="hidden sm:block">
+            <span class="text-transparent bg-clip-text fire-gradient">QCVN 10:2025 & Tem Kiểm Định BCA</span>
           </h1>
 
           <p class="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
-            PCCC24 cung cấp trực tiếp bình chữa cháy, thiết bị báo khói tự động, vòi cứu hỏa dán sẵn tem Cục Cảnh sát PCCC & CNCH. Giao hỏa tốc <strong>2 giờ nội thành</strong>, hỗ trợ trọn gói hồ sơ nghiệm thu dự án cho doanh nghiệp.
+            PCCC24 tích hợp công cụ <strong>tra cứu quy chuẩn thiết kế PCCC theo NĐ 105/2025 & QCVN 10:2025/BCA</strong>, đồng thời cung cấp trực tiếp bình chữa cháy dán tem BCA, hệ thống báo cháy, vòi cứu hỏa giao hỏa tốc 2 giờ nội thành.
           </p>
 
           <div class="flex flex-wrap gap-4 pt-2">
-            <a href="#estimator" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl fire-gradient fire-gradient-hover text-white text-sm font-bold shadow-xl shadow-red-500/25 transition-all transform hover:-translate-y-0.5">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
-              <span>Tính Toán Thiết Bị Ngay</span>
+            <a href="#tra-cuu-pccc" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl fire-gradient fire-gradient-hover text-white text-sm font-bold shadow-xl shadow-red-500/25 transition-all transform hover:-translate-y-0.5">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              <span>Tra Cứu Quy Chuẩn Công Trình</span>
             </a>
             <a href="#products" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white border-2 border-slate-300 hover:border-slate-400 text-slate-800 text-sm font-bold shadow-sm transition-all hover:bg-slate-50">
               <svg class="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
@@ -160,12 +163,12 @@
               <div class="text-xs font-semibold text-slate-600 mt-0.5">Tem Kiểm Định BCA</div>
             </div>
             <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
-              <div class="text-xl font-black text-slate-900">2 Giờ</div>
-              <div class="text-xs font-semibold text-slate-600 mt-0.5">Giao Nhanh Nội Thành</div>
+              <div class="text-xl font-black text-slate-900">QCVN 10:2025</div>
+              <div class="text-xs font-semibold text-slate-600 mt-0.5">Chuẩn Quy Chuẩn Mới</div>
             </div>
             <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
-              <div class="text-xl font-black text-slate-900">12 - 24T</div>
-              <div class="text-xs font-semibold text-slate-600 mt-0.5">Bảo Hành 1 Đổi 1</div>
+              <div class="text-xl font-black text-slate-900">2 Giờ</div>
+              <div class="text-xs font-semibold text-slate-600 mt-0.5">Giao Nhanh Nội Thành</div>
             </div>
             <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
               <div class="text-xl font-black text-emerald-600">CO / CQ</div>
@@ -241,7 +244,306 @@
   </section>
 
   <!-- ======================================================== -->
-  <!-- 3. SMART PCCC SAFETY ESTIMATOR (TÍNH TOÁN DỰ TOÁN PCCC) -->
+  <!-- 3. CÔNG CỤ TRA CỨU QUY CHUẨN PCCC (QCVN 10:2025 & NĐ 105/2025) -->
+  <!-- ======================================================== -->
+  <section id="tra-cuu-pccc" class="py-16 bg-slate-900 text-white border-b border-slate-800 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-4xl mx-auto mb-10">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-600/30 text-red-400 border border-red-500/40 text-xs font-bold uppercase tracking-wider mb-3">
+          ⚡ CÔNG CỤ KỸ SƯ PCCC24 · QCVN 10:2025/BCA & NĐ 105/2025/NĐ-CP
+        </div>
+        <h2 class="text-2xl sm:text-4xl font-black tracking-tight text-white">
+          Hướng Dẫn Sơ Bộ & Tra Cứu Thiết Kế Lắp Đặt PCCC
+        </h2>
+        <p class="text-slate-300 text-sm sm:text-base mt-2 leading-relaxed">
+          Nhập quy mô công trình để sàng lọc: <strong>diện thẩm duyệt PCCC</strong>, <strong>hệ thống bắt buộc trang bị</strong>, <strong>dung tích bể nước</strong> và <strong>định mức bình chữa cháy</strong> — kèm căn cứ pháp lý rõ ràng.
+        </p>
+      </div>
+
+      <!-- Navigation Tabs for Screener -->
+      <div class="flex flex-wrap justify-center gap-2 mb-8 no-print">
+        <button type="button" onclick="switchScreenerTab('sang-loc')" id="btn-tab-sang-loc" class="screener-tab-btn active px-4 py-2.5 rounded-xl bg-red-600 text-white font-bold text-xs shadow-md transition-all flex items-center gap-2">
+          <span>📋 1. Sàng Lọc Quy Chuẩn & Thẩm Duyệt</span>
+        </button>
+        <button type="button" onclick="switchScreenerTab('tinh-nuoc')" id="btn-tab-tinh-nuoc" class="screener-tab-btn px-4 py-2.5 rounded-xl bg-slate-800 text-slate-300 hover:text-white border border-slate-700 font-bold text-xs transition-all flex items-center gap-2">
+          <span>💧 2. Tính Bể Nước Chữa Cháy</span>
+        </button>
+        <button type="button" onclick="switchScreenerTab('tinh-khi')" id="btn-tab-tinh-khi" class="screener-tab-btn px-4 py-2.5 rounded-xl bg-slate-800 text-slate-300 hover:text-white border border-slate-700 font-bold text-xs transition-all flex items-center gap-2">
+          <span>🧯 3. Tính Khí Chữa Cháy (CO₂/FM200/Sol)</span>
+        </button>
+        <button type="button" onclick="switchScreenerTab('live-frame')" id="btn-tab-live-frame" class="screener-tab-btn px-4 py-2.5 rounded-xl bg-slate-800 text-slate-300 hover:text-white border border-slate-700 font-bold text-xs transition-all flex items-center gap-2">
+          <span>🌐 4. Mở Rộng Toàn Bộ Thư Viện Luật</span>
+        </button>
+      </div>
+
+      <!-- ================= TAB 1: SÀNG LỌC QUY CHUẨN ================= -->
+      <div id="tab-sang-loc" class="screener-content-panel">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          <!-- Form Input (7 cols) -->
+          <div class="lg:col-span-7 bg-slate-800/90 rounded-3xl p-6 sm:p-8 border border-slate-700 shadow-xl space-y-5">
+            <h3 class="text-base font-bold text-amber-400 flex items-center gap-2 border-b border-slate-700 pb-3">
+              <span class="w-6 h-6 rounded-lg bg-amber-400 text-slate-950 flex items-center justify-center text-xs font-black">I</span>
+              Nhập thông số công trình cần tra cứu:
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+              <!-- Công năng chính -->
+              <div class="sm:col-span-2">
+                <label class="block font-bold text-slate-200 mb-1.5">Công năng chính của công trình: <span class="text-red-400">*</span></label>
+                <select id="sc-occ" onchange="runPcccScreener()" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl p-3 focus:outline-none focus:border-red-500 font-semibold">
+                  <option value="chungcu">🏢 Nhà chung cư, nhà tập thể, nhà ở nhiều căn hộ</option>
+                  <option value="khachsan">🏨 Khách sạn, nhà nghỉ, nhà khách, homestay</option>
+                  <option value="karaoke">🎤 Karaoke, vũ trường, quán bar, massage</option>
+                  <option value="vanphong">💼 Trụ sở cơ quan, nhà làm việc, văn phòng</option>
+                  <option value="tttm">🛍️ Trung tâm thương mại, siêu thị, cửa hàng kinh doanh</option>
+                  <option value="benhvien">🏥 Bệnh viện, phòng khám, cơ sở y tế</option>
+                  <option value="truonghoc">🏫 Trường học, cơ sở giáo dục, mầm non</option>
+                  <option value="nhaxuong">🏭 Nhà xưởng sản xuất công nghiệp</option>
+                  <option value="khohang">📦 Kho hàng hóa, vật tư, logistics</option>
+                  <option value="gara">🚗 Nhà để xe, gara ô tô</option>
+                </select>
+              </div>
+
+              <!-- Số tầng nổi -->
+              <div>
+                <label class="block font-bold text-slate-200 mb-1">Số tầng nổi: <span class="text-red-400">*</span></label>
+                <input type="number" id="sc-floors" min="1" value="5" oninput="runPcccScreener()" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl p-2.5 focus:outline-none focus:border-red-500 font-mono-code font-bold">
+              </div>
+
+              <!-- Số tầng hầm -->
+              <div>
+                <label class="block font-bold text-slate-200 mb-1">Số tầng hầm:</label>
+                <input type="number" id="sc-basements" min="0" value="0" oninput="runPcccScreener()" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl p-2.5 focus:outline-none focus:border-red-500 font-mono-code font-bold">
+              </div>
+
+              <!-- Chiều cao PCCC -->
+              <div>
+                <label class="block font-bold text-slate-200 mb-1">Chiều cao PCCC H (m): <span class="text-red-400">*</span></label>
+                <input type="number" id="sc-height" min="1" step="0.5" value="18" oninput="runPcccScreener()" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl p-2.5 focus:outline-none focus:border-red-500 font-mono-code font-bold">
+                <span class="text-[10px] text-slate-400">Từ mặt đường xe chữa cháy đến sàn tầng cao nhất</span>
+              </div>
+
+              <!-- Diện tích 1 sàn điển hình -->
+              <div>
+                <label class="block font-bold text-slate-200 mb-1">Diện tích 1 sàn điển hình (m²):</label>
+                <input type="number" id="sc-area-floor" min="10" value="300" oninput="autoCalcTotalArea()" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl p-2.5 focus:outline-none focus:border-red-500 font-mono-code font-bold">
+              </div>
+
+              <!-- Tổng diện tích sàn ΣF -->
+              <div>
+                <label class="block font-bold text-slate-200 mb-1">Tổng diện tích sàn ΣF (m²): <span class="text-red-400">*</span></label>
+                <input type="number" id="sc-total-area" min="10" value="1500" oninput="runPcccScreener()" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl p-2.5 focus:outline-none focus:border-red-500 font-mono-code font-bold">
+              </div>
+
+              <!-- Khối tích V -->
+              <div>
+                <label class="block font-bold text-slate-200 mb-1">Tổng khối tích V (m³):</label>
+                <input type="number" id="sc-volume" min="10" value="4500" oninput="runPcccScreener()" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl p-2.5 focus:outline-none focus:border-red-500 font-mono-code font-bold">
+              </div>
+            </div>
+
+            <!-- Action buttons -->
+            <div class="pt-2 flex flex-wrap gap-3">
+              <button type="button" onclick="runPcccScreener()" class="px-5 py-2.5 rounded-xl fire-gradient fire-gradient-hover text-white font-bold text-xs shadow-md transition-all flex items-center gap-1.5">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                Chạy Sàng Lọc Ngay
+              </button>
+              <button type="button" onclick="window.print()" class="px-4 py-2.5 rounded-xl bg-slate-700 hover:bg-slate-600 text-slate-200 font-bold text-xs transition-colors flex items-center gap-1.5">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+                In / Lưu Phiếu PDF
+              </button>
+            </div>
+          </div>
+
+          <!-- Screener Output Card (5 cols) -->
+          <div class="lg:col-span-5 bg-white text-slate-900 rounded-3xl p-6 sm:p-7 shadow-2xl border border-slate-200 space-y-4" id="phieu-ket-qua">
+            <div class="border-b border-slate-200 pb-3 flex items-center justify-between">
+              <div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-red-600 bg-red-50 px-2 py-0.5 rounded">PHIẾU ĐÁNH GIÁ SƠ BỘ</span>
+                <h4 class="text-base font-black text-slate-900 mt-1" id="res-occ-name">Nhà Chung Cư</h4>
+              </div>
+              <div class="text-right">
+                <span id="res-stamp-badge" class="px-2.5 py-1 rounded-lg text-xs font-black bg-red-100 text-red-700 border border-red-200">
+                  THẨM DUYỆT PCCC
+                </span>
+              </div>
+            </div>
+
+            <!-- Dynamic Results Accordion / List -->
+            <div class="space-y-3 text-xs" id="res-items-container">
+              <!-- Rendered via JS -->
+            </div>
+
+            <!-- Summary Note & PCCC24 Direct Hotline -->
+            <div class="pt-3 border-t border-slate-200 space-y-3">
+              <div class="p-3 bg-amber-50 rounded-xl border border-amber-200 text-amber-900 text-[11px] leading-relaxed">
+                <strong>Ghi chú từ Kỹ sư PCCC24:</strong> Toàn bộ kết quả sàng lọc được lập trình theo <strong>NĐ 105/2025/NĐ-CP</strong> và <strong>QCVN 10:2025/BCA</strong>. Hãy liên hệ PCCC24 để nhận bản vẽ thiết kế & hỗ trợ hồ sơ nghiệm thu trọn gói.
+              </div>
+              <a href="tel:0968242424" class="w-full py-3 rounded-xl fire-gradient fire-gradient-hover text-white text-xs font-bold shadow-lg shadow-red-600/30 transition-all flex items-center justify-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                <span>Kỹ Sư Tư Vấn 24/7: 0968.24.24.24</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ================= TAB 2: TÍNH DUNG TÍCH BỂ NƯỚC ================= -->
+      <div id="tab-tinh-nuoc" class="screener-content-panel hidden">
+        <div class="max-w-4xl mx-auto bg-slate-800/90 rounded-3xl p-6 sm:p-8 border border-slate-700 shadow-xl space-y-6">
+          <div class="border-b border-slate-700 pb-3">
+            <span class="text-xs font-bold text-blue-400 uppercase tracking-wider">CÔNG THỨC CHUẨN QCVN 06 & TCVN 7336:2021</span>
+            <h3 class="text-xl font-black text-white mt-1">Tính Dung Tích Bể Nước Chữa Cháy (V_tổng = V_tn + V_sp + V_nn)</h3>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+            <!-- Họng nước trong nhà -->
+            <div class="bg-slate-900 p-4 rounded-2xl border border-slate-700 space-y-3">
+              <h4 class="font-bold text-amber-400 uppercase">1. Họng nước trong nhà (V_tn)</h4>
+              <div>
+                <label class="block text-slate-400 mb-1">Số tia phun đồng thời:</label>
+                <input type="number" id="w-nuoc-tia" value="2" min="1" oninput="calcWaterTank()" class="w-full bg-slate-800 border border-slate-700 text-white rounded-lg p-2 font-mono-code font-bold">
+              </div>
+              <div>
+                <label class="block text-slate-400 mb-1">Lưu lượng mỗi tia (L/s):</label>
+                <input type="number" id="w-nuoc-q-tia" value="2.5" step="0.5" oninput="calcWaterTank()" class="w-full bg-slate-800 border border-slate-700 text-white rounded-lg p-2 font-mono-code font-bold">
+              </div>
+              <div>
+                <label class="block text-slate-400 mb-1">Thời gian duy trì (phút):</label>
+                <input type="number" id="w-nuoc-t-tn" value="60" oninput="calcWaterTank()" class="w-full bg-slate-800 border border-slate-700 text-white rounded-lg p-2 font-mono-code font-bold">
+              </div>
+              <div class="pt-2 border-t border-slate-800 font-bold text-slate-200">
+                V_tn: <span id="res-v-tn" class="text-amber-400 font-mono-code">18.0 m³</span>
+              </div>
+            </div>
+
+            <!-- Chữa cháy tự động Sprinkler -->
+            <div class="bg-slate-900 p-4 rounded-2xl border border-slate-700 space-y-3">
+              <h4 class="font-bold text-emerald-400 uppercase">2. Sprinkler Tự Động (V_sp)</h4>
+              <div>
+                <label class="block text-slate-400 mb-1">Lưu lượng Sprinkler Q (L/s):</label>
+                <input type="number" id="w-nuoc-q-sp" value="30" oninput="calcWaterTank()" class="w-full bg-slate-800 border border-slate-700 text-white rounded-lg p-2 font-mono-code font-bold">
+              </div>
+              <div>
+                <label class="block text-slate-400 mb-1">Thời gian phun (phút):</label>
+                <input type="number" id="w-nuoc-t-sp" value="60" oninput="calcWaterTank()" class="w-full bg-slate-800 border border-slate-700 text-white rounded-lg p-2 font-mono-code font-bold">
+              </div>
+              <div class="pt-2 border-t border-slate-800 font-bold text-slate-200">
+                V_sp: <span id="res-v-sp" class="text-emerald-400 font-mono-code">108.0 m³</span>
+              </div>
+            </div>
+
+            <!-- Cấp nước ngoài nhà -->
+            <div class="bg-slate-900 p-4 rounded-2xl border border-slate-700 space-y-3">
+              <h4 class="font-bold text-blue-400 uppercase">3. Trụ ngoài nhà (V_nn)</h4>
+              <div>
+                <label class="block text-slate-400 mb-1">Lưu lượng ngoài nhà Q_nn (L/s):</label>
+                <input type="number" id="w-nuoc-q-nn" value="15" oninput="calcWaterTank()" class="w-full bg-slate-800 border border-slate-700 text-white rounded-lg p-2 font-mono-code font-bold">
+              </div>
+              <div>
+                <label class="block text-slate-400 mb-1">Thời gian duy trì (giờ):</label>
+                <input type="number" id="w-nuoc-t-nn" value="3" oninput="calcWaterTank()" class="w-full bg-slate-800 border border-slate-700 text-white rounded-lg p-2 font-mono-code font-bold">
+              </div>
+              <div class="pt-2 border-t border-slate-800 font-bold text-slate-200">
+                V_nn: <span id="res-v-nn" class="text-blue-400 font-mono-code">162.0 m³</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Total Tank Result -->
+          <div class="p-5 rounded-2xl bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800/60 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+              <div class="text-xs text-blue-300 font-semibold">TỔNG DUNG TÍCH BỂ NƯỚC PCCC CẦN XÂY DỰNG:</div>
+              <div class="text-3xl font-black text-amber-400 mt-0.5" id="res-v-tong">288.0 m³ <span class="text-sm font-normal text-slate-300">(= 288.000 Lít)</span></div>
+            </div>
+            <a href="tel:0968242424" class="px-5 py-2.5 rounded-xl fire-gradient text-white text-xs font-bold shadow-md">
+              Báo Giá Máy Bơm & Bồn PCCC
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= TAB 3: TÍNH KHÍ CHỮA CHÁY ================= -->
+      <div id="tab-tinh-khi" class="screener-content-panel hidden">
+        <div class="max-w-4xl mx-auto bg-slate-800/90 rounded-3xl p-6 sm:p-8 border border-slate-700 shadow-xl space-y-6">
+          <div class="border-b border-slate-700 pb-3">
+            <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">HỆ THỐNG CHỮA CHÁY PHÒNG SERVER, TỦ ĐIỆN, TRẠM BIẾN ÁP</span>
+            <h3 class="text-xl font-black text-white mt-1">Tính Khối Lượng Khí Dập Cháy (M = V × C × K)</h3>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-xs">
+            <div class="space-y-4">
+              <div>
+                <label class="block font-bold text-slate-200 mb-1">Loại khí dập cháy:</label>
+                <select id="gas-type" onchange="calcGasSuppression()" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl p-3 focus:outline-none focus:border-red-500 font-semibold">
+                  <option value="fm200">FM200 / HFC-227ea (Nồng độ 7.9% ~ 0.627 kg/m³)</option>
+                  <option value="co2">Khí CO₂ ngập tràn (Nồng độ thiết kế ~ 0.70 kg/m³)</option>
+                  <option value="solkhi">Sol-Khí Aerosol (Định mức dập tắt ~ 0.10 kg/m³)</option>
+                  <option value="novec">Novec 1230 / FK-5-1-12 (Nồng độ ~ 0.785 kg/m³)</option>
+                </select>
+              </div>
+
+              <div class="grid grid-cols-3 gap-2">
+                <div>
+                  <label class="block text-slate-400 mb-1">Dài D (m):</label>
+                  <input type="number" id="gas-l" value="6" step="0.5" oninput="calcGasSuppression()" class="w-full bg-slate-900 border border-slate-700 text-white rounded-lg p-2 font-mono-code font-bold">
+                </div>
+                <div>
+                  <label class="block text-slate-400 mb-1">Rộng R (m):</label>
+                  <input type="number" id="gas-w" value="4" step="0.5" oninput="calcGasSuppression()" class="w-full bg-slate-900 border border-slate-700 text-white rounded-lg p-2 font-mono-code font-bold">
+                </div>
+                <div>
+                  <label class="block text-slate-400 mb-1">Cao C (m):</label>
+                  <input type="number" id="gas-h" value="3" step="0.1" oninput="calcGasSuppression()" class="w-full bg-slate-900 border border-slate-700 text-white rounded-lg p-2 font-mono-code font-bold">
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-slate-900 p-5 rounded-2xl border border-slate-700 flex flex-col justify-between space-y-4">
+              <div>
+                <div class="text-slate-400 text-[11px]">Thể tích không gian bảo vệ:</div>
+                <div class="text-xl font-bold text-white font-mono-code" id="gas-volume-val">72.0 m³</div>
+              </div>
+              <div class="pt-3 border-t border-slate-800">
+                <div class="text-xs text-amber-400 font-bold uppercase">Khối lượng chất chữa cháy cần thiết:</div>
+                <div class="text-3xl font-black text-amber-400 font-mono-code mt-1" id="gas-mass-val">45.14 kg</div>
+                <div class="text-[11px] text-slate-400 mt-1" id="gas-bottle-suggest">Tương đương 01 bình FM200 70L</div>
+              </div>
+              <a href="tel:0968242424" class="w-full py-2.5 rounded-xl fire-gradient text-white text-xs font-bold text-center">
+                Báo Giá Trọn Gói Bình Khí & Đầu Phun
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= TAB 4: MỞ RỘNG THƯ VIỆN ================= -->
+      <div id="tab-live-frame" class="screener-content-panel hidden">
+        <div class="max-w-6xl mx-auto bg-slate-800/90 rounded-3xl p-6 border border-slate-700 shadow-xl space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-700 pb-3">
+            <div>
+              <h3 class="text-base font-bold text-white">Tra cứu Chi Tiết Kỹ Thuật (Live Interactive Frame)</h3>
+              <p class="text-xs text-slate-400">Nguồn dữ liệu chuyên sâu: water-114.github.io/huong-dan-so-bo-pccc</p>
+            </div>
+            <a href="https://water-114.github.io/huong-dan-so-bo-pccc/" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-xl bg-slate-700 hover:bg-slate-600 text-white text-xs font-bold flex items-center gap-1.5 transition-colors">
+              <span>Mở tab mới toàn màn hình ↗</span>
+            </a>
+          </div>
+          <div class="w-full h-[650px] rounded-2xl overflow-hidden border border-slate-700 bg-white">
+            <iframe src="https://water-114.github.io/huong-dan-so-bo-pccc/" class="w-full h-full border-0" title="Hướng dẫn sơ bộ PCCC"></iframe>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- 4. SMART PCCC SAFETY ESTIMATOR (TÍNH TOÁN DỰ TOÁN PCCC) -->
   <!-- ======================================================== -->
   <section id="estimator" class="py-16 bg-white border-b border-slate-200 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -250,7 +552,7 @@
           ⚡ TÍNH TOÁN THÔNG MINH
         </span>
         <h2 class="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight mt-3">
-          Công Cụ Tính Toán Thiết Bị PCCC Theo Quy Chuẩn
+          Công Cụ Tính Toán Thiết Bị PCCC Theo Diện Tích
         </h2>
         <p class="text-slate-600 text-sm sm:text-base mt-2">
           Hệ thống tự động đề xuất số lượng bình chữa cháy, đầu báo khói và trang bị cần thiết theo quy chuẩn <strong>TCVN 3890</strong> phù hợp với diện tích thực tế.
@@ -359,7 +661,7 @@
   </section>
 
   <!-- ======================================================== -->
-  <!-- 4. PRODUCT CATALOG WITH CATEGORY FILTER -->
+  <!-- 5. PRODUCT CATALOG WITH CATEGORY FILTER -->
   <!-- ======================================================== -->
   <section id="products" class="py-16 bg-slate-50 border-b border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -614,7 +916,7 @@
   </section>
 
   <!-- ======================================================== -->
-  <!-- 5. B2C (HOUSEHOLD) & B2B (PROJECTS) SPLIT SOLUTIONS -->
+  <!-- 6. B2C (HOUSEHOLD) & B2B (PROJECTS) SPLIT SOLUTIONS -->
   <!-- ======================================================== -->
   <section id="solutions" class="py-16 bg-white border-b border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -708,7 +1010,7 @@
   </section>
 
   <!-- ======================================================== -->
-  <!-- 6. BCA TRUST & VERIFICATION EXPLAINER -->
+  <!-- 7. BCA TRUST & VERIFICATION EXPLAINER -->
   <!-- ======================================================== -->
   <section id="bca-trust" class="py-16 bg-slate-900 text-white border-b border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -739,7 +1041,7 @@
           <div class="p-6 sm:p-8 rounded-3xl bg-slate-800/80 border border-slate-700 shadow-xl space-y-4">
             <div class="flex items-center justify-between border-b border-slate-700 pb-3">
               <span class="text-xs font-bold text-slate-400">MẪU TEM KIỂM ĐỊNH MẪU BCA</span>
-              <span class="text-xs font-bold text-amber-400">CHUẨN QUY ĐỊNH 2024</span>
+              <span class="text-xs font-bold text-amber-400">CHUẨN QUY ĐỊNH 2024 - 2025</span>
             </div>
             <div class="bg-amber-100 text-slate-900 p-5 rounded-2xl border-2 border-amber-400 space-y-2">
               <div class="flex items-center justify-between">
@@ -760,7 +1062,7 @@
   </section>
 
   <!-- ======================================================== -->
-  <!-- 7. INTERACTIVE FAQ ACCORDION -->
+  <!-- 8. INTERACTIVE FAQ ACCORDION -->
   <!-- ======================================================== -->
   <section id="faq" class="py-16 bg-white border-b border-slate-200">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -775,6 +1077,16 @@
 
       <div class="space-y-3" id="faq-accordion">
         
+        <div class="border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+          <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left bg-slate-50 hover:bg-slate-100 font-bold text-slate-900 text-sm transition-colors">
+            <span>Quy chuẩn QCVN 10:2025/BCA & NĐ 105/2025 quy định công trình nào phải thẩm duyệt PCCC?</span>
+            <span class="faq-icon text-red-600 font-black text-lg transition-transform">+</span>
+          </button>
+          <div class="faq-content hidden p-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200 bg-white">
+            Theo Nghị định 105/2025/NĐ-CP (Phụ lục III), các công trình như nhà chung cư ≥ 7 tầng hoặc khối tích ≥ 5.000 m³, khách sạn/nhà nghỉ ≥ 5 tầng hoặc ≥ 1.500 m³, karaoke/vũ trường mọi quy mô diện tích sàn, nhà xưởng hạng C/D/E theo diện tích quy định đều thuộc diện phải thẩm định thiết kế PCCC trước khi thi công. Bạn có thể dùng <strong>Công cụ Tra Cứu</strong> ở trên để sàng lọc ngay.
+          </div>
+        </div>
+
         <div class="border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
           <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left bg-slate-50 hover:bg-slate-100 font-bold text-slate-900 text-sm transition-colors">
             <span>Bình chữa cháy tại PCCC24 có sẵn tem kiểm định của Bộ Công An không?</span>
@@ -805,24 +1117,14 @@
           </div>
         </div>
 
-        <div class="border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
-          <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left bg-slate-50 hover:bg-slate-100 font-bold text-slate-900 text-sm transition-colors">
-            <span>PCCC24 giao hàng trong bao lâu và chính sách thanh toán thế nào?</span>
-            <span class="faq-icon text-red-600 font-black text-lg transition-transform">+</span>
-          </button>
-          <div class="faq-content hidden p-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200 bg-white">
-            Giao hỏa tốc trong <strong>2 giờ</strong> tại nội thành Hà Nội & TP.HCM. Tỉnh thành khác nhận hàng trong 24 - 48 giờ. Khách hàng được kiểm tra bình, tem kiểm định trước khi thanh toán tiền mặt (COD) hoặc chuyển khoản công ty.
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
 
   <!-- ======================================================== -->
-  <!-- 8. FOOTER WITH COMPLETE CORPORATE INFO -->
+  <!-- 9. FOOTER WITH COMPLETE CORPORATE INFO -->
   <!-- ======================================================== -->
-  <footer class="bg-slate-950 text-slate-400 text-xs pt-12 pb-8 border-t border-slate-900">
+  <footer class="bg-slate-950 text-slate-400 text-xs pt-12 pb-8 border-t border-slate-900 no-print">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-slate-800">
         
@@ -867,7 +1169,7 @@
               <span>Về Giao Diện 1.0 (Bản Gốc)</span>
             </a>
             <p class="text-[11px] text-slate-500">
-              Giao diện 2.0 cung cấp công cụ tính toán dự toán thiết bị và giỏ hàng tương tác nhanh.
+              Giao diện 2.0 tích hợp công cụ tra cứu quy chuẩn QCVN 10:2025 và dự toán thiết bị PCCC.
             </p>
           </div>
         </div>
@@ -876,17 +1178,17 @@
 
       <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-slate-500 text-[11px] gap-2">
         <p>© 2024 PCCC24.COM - Bản quyền thuộc Công ty TNHH MTV Hoàng Quân Phát.</p>
-        <p>Tuân thủ tiêu chuẩn TCVN 3890 / TCVN 7026 và kiểm định Bộ Công An.</p>
+        <p>Tuân thủ QCVN 10:2025/BCA, NĐ 105/2025/NĐ-CP, TCVN 3890 & TCVN 7026.</p>
       </div>
     </div>
   </footer>
 
   <!-- ======================================================== -->
-  <!-- 9. SLIDE-OUT CART DRAWER & CHECKOUT MODAL -->
+  <!-- 10. SLIDE-OUT CART DRAWER & CHECKOUT MODAL -->
   <!-- ======================================================== -->
-  <div id="cart-drawer-overlay" class="fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-50 hidden transition-opacity" onclick="toggleCartDrawer(false)"></div>
+  <div id="cart-drawer-overlay" class="fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-50 hidden transition-opacity no-print" onclick="toggleCartDrawer(false)"></div>
   
-  <div id="cart-drawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 flex flex-col">
+  <div id="cart-drawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 flex flex-col no-print">
     <!-- Cart Header -->
     <div class="p-5 border-b border-slate-200 flex items-center justify-between bg-slate-900 text-white">
       <div class="flex items-center gap-2">
@@ -930,32 +1232,333 @@
   </div>
 
   <!-- Toast Notification -->
-  <div id="toast-msg" class="fixed bottom-24 right-4 sm:bottom-6 sm:right-6 bg-slate-900 text-white px-4 py-3 rounded-xl shadow-2xl text-xs font-bold flex items-center gap-2 transform translate-y-20 opacity-0 transition-all duration-300 z-50 pointer-events-none border border-slate-700">
+  <div id="toast-msg" class="fixed bottom-24 right-4 sm:bottom-6 sm:right-6 bg-slate-900 text-white px-4 py-3 rounded-xl shadow-2xl text-xs font-bold flex items-center gap-2 transform translate-y-20 opacity-0 transition-all duration-300 z-50 pointer-events-none border border-slate-700 no-print">
     <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
     <span id="toast-text">Đã thêm vào giỏ hàng!</span>
   </div>
 
   <!-- Mobile Sticky Bottom Bar -->
-  <div class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-slate-200 p-2.5 flex items-center gap-2 z-40 lg:hidden shadow-lg">
-    <a href="tel:0968242424" class="flex-1 py-2.5 rounded-xl fire-gradient text-white text-xs font-bold text-center flex items-center justify-center gap-1.5 shadow-sm">
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-      <span>Gọi 0968.24.24.24</span>
+  <div class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-slate-200 p-2.5 flex items-center gap-2 z-40 lg:hidden shadow-lg no-print">
+    <a href="#tra-cuu-pccc" class="flex-1 py-2.5 rounded-xl bg-slate-800 text-white text-xs font-bold text-center flex items-center justify-center gap-1">
+      <span>🔍 Tra Cứu QCVN</span>
     </a>
-    <button onclick="toggleCartDrawer(true)" class="flex-1 py-2.5 rounded-xl bg-slate-900 text-white text-xs font-bold text-center flex items-center justify-center gap-1.5">
+    <a href="tel:0968242424" class="flex-1 py-2.5 rounded-xl fire-gradient text-white text-xs font-bold text-center flex items-center justify-center gap-1 shadow-sm">
+      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+      <span>0968.24.24.24</span>
+    </a>
+    <button onclick="toggleCartDrawer(true)" class="p-2.5 rounded-xl bg-slate-900 text-white text-xs font-bold text-center flex items-center justify-center">
       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
-      <span>Giỏ hàng (<span id="mobile-cart-counter">0</span>)</span>
     </button>
   </div>
 
   <!-- ======================================================== -->
-  <!-- 10. JAVASCRIPT LOGIC -->
+  <!-- 11. JAVASCRIPT LOGIC & SCREENER ENGINE -->
   <!-- ======================================================== -->
   <script>
     // State management
     let cart = [];
     let currentEstimatorType = 'house';
 
-    // Estimator configuration rules based on TCVN 3890
+    // ----------------------------------------------------
+    // SCREENER ENGINE (QCVN 10:2025/BCA & NĐ 105/2025/NĐ-CP)
+    // ----------------------------------------------------
+    const occDatabase = {
+      chungcu: {
+        name: 'Nhà chung cư, nhà ở nhiều căn hộ',
+        thamDuyet: (floors, height, area, vol, basements) => {
+          if (height >= 28 || floors >= 7 || vol >= 5000 || basements >= 1) {
+            return { required: true, note: 'Bắt buộc thẩm định thiết kế (NĐ 105/2025/NĐ-CP Phụ lục III: Nhà ở ≥ 7 tầng hoặc V ≥ 5.000 m³ hoặc có từ 1 tầng hầm).' };
+          }
+          return { required: false, note: 'Thuộc diện quản lý cơ sở nhưng không bắt buộc thẩm định thiết kế theo Phụ lục III NĐ 105/2025.' };
+        },
+        baoChay: (floors, height, area, vol, basements) => {
+          if (height >= 28 || floors >= 5 || vol >= 3000 || basements >= 1) {
+            return { type: 'BẮT BUỘC TOÀN BỘ', badge: 'bg-red-100 text-red-700', note: 'QCVN 10:2025 Phụ lục A: Báo cháy tự động toàn công trình, liên động chuông còi báo động.' };
+          }
+          return { type: 'BÁO KHÓI ĐỘC LẬP', badge: 'bg-amber-100 text-amber-800', note: 'Trang bị đầu báo khói độc lập không dây từng phòng theo TCVN 3890.' };
+        },
+        sprinkler: (floors, height, area, vol, basements) => {
+          if (height >= 28 || basements >= 1 || (floors >= 5 && area >= 1000)) {
+            return { required: true, note: 'QCVN 10:2025 Phụ lục B: Bắt buộc chữa cháy tự động Sprinkler toàn bộ các tầng và tầng hầm.' };
+          }
+          return { required: false, note: 'Chưa thuộc diện bắt buộc lắp sprinkler tự động toàn nhà.' };
+        },
+        hongNuoc: (floors, height, area, vol) => {
+          if (height >= 15 || floors >= 5 || vol >= 2500) {
+            return 'Bắt buộc: 01 - 02 họng nước vách tường D50 (2 x 2.5 L/s) theo QCVN 06:2022 Bảng 11';
+          }
+          return 'Khuyến khích trang bị tủ cuộn vòi D50';
+        }
+      },
+      khachsan: {
+        name: 'Khách sạn, nhà nghỉ, nhà khách',
+        thamDuyet: (floors, height, area, vol, basements) => {
+          if (height >= 15 || floors >= 5 || vol >= 1500 || basements >= 1) {
+            return { required: true, note: 'Bắt buộc thẩm định thiết kế (NĐ 105/2025 Phụ lục III: Cơ sở lưu trú ≥ 5 tầng hoặc V ≥ 1.500 m³).' };
+          }
+          return { required: false, note: 'Cơ sở quy mô nhỏ dưới ngưỡng Phụ lục III NĐ 105/2025.' };
+        },
+        baoChay: (floors, height, area, vol, basements) => {
+          if (floors >= 3 || vol >= 1000 || basements >= 1) {
+            return { type: 'BẮT BUỘC TOÀN BỘ', badge: 'bg-red-100 text-red-700', note: 'QCVN 10:2025 Phụ lục A: Hệ thống báo cháy tự động địa chỉ/thường.' };
+          }
+          return { type: 'BÁO KHÓI ĐỘC LẬP', badge: 'bg-amber-100 text-amber-800', note: 'Báo khói tại phòng ngủ và hành lang thoát nạn.' };
+        },
+        sprinkler: (floors, height, area, vol, basements) => {
+          if (height >= 25 || floors >= 5 || area >= 1000 || basements >= 1) {
+            return { required: true, note: 'QCVN 10:2025 Phụ lục B: Bắt buộc Sprinkler tự động.' };
+          }
+          return { required: false, note: 'Chưa bắt buộc hệ thống Sprinkler tự động.' };
+        },
+        hongNuoc: (floors, height, area, vol) => {
+          return 'Bắt buộc: Họng nước trong nhà 2 x 2.5 L/s theo QCVN 06:2022 Bảng 11';
+        }
+      },
+      karaoke: {
+        name: 'Karaoke, vũ trường, quán bar',
+        thamDuyet: (floors, height, area, vol, basements) => {
+          return { required: true, note: 'BẮT BUỘC 100% THẨM ĐỊNH THIẾT KẾ: Cơ sở kinh doanh dịch vụ karaoke, vũ trường thuộc mọi quy mô theo NĐ 105/2025.' };
+        },
+        baoChay: (floors, height, area, vol, basements) => {
+          return { type: 'BẮT BUỘC LIÊN ĐỘNG', badge: 'bg-red-100 text-red-700', note: 'Báo cháy tự động liên động ngắt hệ thống âm thanh, ánh sáng theo QCVN 10:2025.' };
+        },
+        sprinkler: (floors, height, area, vol, basements) => {
+          return { required: true, note: 'Bắt buộc Sprinkler dập cháy tự động từng phòng và hành lang.' };
+        },
+        hongNuoc: (floors, height, area, vol) => {
+          return 'Bắt buộc: 02 họng nước chữa cháy vách tường D50';
+        }
+      },
+      vanphong: {
+        name: 'Trụ sở cơ quan, nhà làm việc, văn phòng',
+        thamDuyet: (floors, height, area, vol, basements) => {
+          if (height >= 28 || floors >= 7 || vol >= 5000 || basements >= 1) {
+            return { required: true, note: 'Bắt buộc thẩm định thiết kế (NĐ 105/2025 Phụ lục III: Nhà làm việc ≥ 7 tầng hoặc V ≥ 5.000 m³).' };
+          }
+          return { required: false, note: 'Không thuộc diện bắt buộc thẩm định thiết kế.' };
+        },
+        baoChay: (floors, height, area, vol, basements) => {
+          if (floors >= 5 || vol >= 3000 || basements >= 1) {
+            return { type: 'BẮT BUỘC TOÀN BỘ', badge: 'bg-red-100 text-red-700', note: 'QCVN 10:2025 Phụ lục A: Báo cháy tự động.' };
+          }
+          return { type: 'BÁO KHÓI ĐỘC LẬP', badge: 'bg-amber-100 text-amber-800', note: 'Báo khói tại phòng làm việc và hành lang.' };
+        },
+        sprinkler: (floors, height, area, vol, basements) => {
+          if (height >= 28 || basements >= 1) {
+            return { required: true, note: 'QCVN 10:2025 Phụ lục B: Bắt buộc Sprinkler tự động.' };
+          }
+          return { required: false, note: 'Chưa bắt buộc sprinkler tự động toàn nhà.' };
+        },
+        hongNuoc: (floors, height, area, vol) => {
+          if (floors >= 5 || vol >= 2500) return 'Bắt buộc: Họng nước trong nhà 1 - 2 tia (2.5 L/s)';
+          return 'Khuyến khích trang bị tủ vòi chữa cháy';
+        }
+      },
+      tttm: {
+        name: 'Trung tâm thương mại, siêu thị, chợ',
+        thamDuyet: (floors, height, area, vol, basements) => {
+          if (floors >= 3 || vol >= 1500 || area >= 500 || basements >= 1) {
+            return { required: true, note: 'Bắt buộc thẩm định thiết kế theo NĐ 105/2025.' };
+          }
+          return { required: false, note: 'Cửa hàng nhỏ lẻ không thuộc diện bắt buộc thẩm định.' };
+        },
+        baoChay: (floors, height, area, vol, basements) => {
+          return { type: 'BẮT BUỘC TOÀN BỘ', badge: 'bg-red-100 text-red-700', note: 'QCVN 10:2025: Báo cháy tự động.' };
+        },
+        sprinkler: (floors, height, area, vol, basements) => {
+          if (area >= 500 || floors >= 3 || basements >= 1) {
+            return { required: true, note: 'QCVN 10:2025: Bắt buộc Sprinkler tự động.' };
+          }
+          return { required: false, note: 'Chưa bắt buộc sprinkler.' };
+        },
+        hongNuoc: () => 'Bắt buộc: Họng nước chữa cháy trong nhà (2 x 2.5 L/s)'
+      },
+      benhvien: {
+        name: 'Bệnh viện, phòng khám, cơ sở y tế',
+        thamDuyet: () => ({ required: true, note: 'Bắt buộc thẩm định thiết kế: Cơ sở khám chữa bệnh có giường bệnh hoặc ≥ 3 tầng (NĐ 105/2025).' }),
+        baoChay: () => ({ type: 'BẮT BUỘC ĐỊA CHỈ', badge: 'bg-red-100 text-red-700', note: 'Hệ thống báo cháy địa chỉ chính xác phòng bệnh.' }),
+        sprinkler: (f, h, a, v, b) => ({ required: (h >= 15 || f >= 3 || b >= 1), note: 'Sprinkler bắt buộc theo QCVN 10:2025.' }),
+        hongNuoc: () => 'Bắt buộc: Họng nước trong nhà 2 tia x 2.5 L/s'
+      },
+      truonghoc: {
+        name: 'Trường học, cơ sở giáo dục, mầm non',
+        thamDuyet: (f, h, a, v) => ({ required: (f >= 3 || v >= 3000), note: 'Thẩm định thiết kế: Trường học ≥ 3 tầng hoặc khối tích ≥ 3.000 m³.' }),
+        baoChay: (f) => ({ type: f >= 3 ? 'BẮT BUỘC' : 'BÁO KHÓI ĐỘC LẬP', badge: 'bg-red-100 text-red-700', note: 'Báo cháy hành lang và phòng chức năng.' }),
+        sprinkler: () => ({ required: false, note: 'Theo diện tích phòng thí nghiệm / thư viện chuyên biệt.' }),
+        hongNuoc: () => 'Họng nước trong nhà theo quy mô'
+      },
+      nhaxuong: {
+        name: 'Nhà xưởng sản xuất công nghiệp',
+        thamDuyet: (f, h, a, v) => ({ required: (a >= 1000 || v >= 5000), note: 'Bắt buộc thẩm duyệt: Nhà xưởng hạng C/D diện tích ≥ 1.000 m² hoặc V ≥ 5.000 m³.' }),
+        baoChay: () => ({ type: 'BẮT BUỘC TOÀN XƯỞNG', badge: 'bg-red-100 text-red-700', note: 'Báo cháy beam quang hồng ngoại hoặc đầu báo nhiệt/khói.' }),
+        sprinkler: (f, h, a) => ({ required: (a >= 1000), note: 'Sprinkler tự động cho nhà xưởng hạng C theo QCVN 10:2025.' }),
+        hongNuoc: () => 'Bắt buộc: Họng nước vách tường D50/D65 (2 x 5 L/s) & Trụ ngoài nhà'
+      },
+      khohang: {
+        name: 'Kho hàng hóa, logistics',
+        thamDuyet: (f, h, a, v) => ({ required: (a >= 1000 || v >= 3000), note: 'Bắt buộc thẩm duyệt: Kho hàng hóa cháy được ≥ 1.000 m².' }),
+        baoChay: () => ({ type: 'BẮT BUỘC', badge: 'bg-red-100 text-red-700', note: 'Báo cháy tự động toàn kho.' }),
+        sprinkler: (f, h, a) => ({ required: (a >= 500), note: 'Kho kệ cao >5.5m áp dụng TCVN 14496:2025.' }),
+        hongNuoc: () => 'Bắt buộc: Họng nước trong nhà + Cấp nước ngoài nhà'
+      },
+      gara: {
+        name: 'Nhà để xe, gara ô tô',
+        thamDuyet: (f, h, a, v, b) => ({ required: (b >= 1 || f >= 2 || a >= 500), note: 'Bắt buộc thẩm duyệt PCCC theo NĐ 105/2025.' }),
+        baoChay: () => ({ type: 'BẮT BUỘC', badge: 'bg-red-100 text-red-700', note: 'Báo cháy đầu báo nhiệt/khói.' }),
+        sprinkler: () => ({ required: true, note: 'Bắt buộc Sprinkler tự động hoặc hệ bọt dập xăng dầu.' }),
+        hongNuoc: () => 'Bắt buộc: Họng nước D50 (2 x 2.5 L/s)'
+      }
+    };
+
+    function switchScreenerTab(tabId) {
+      document.querySelectorAll('.screener-tab-btn').forEach(btn => {
+        btn.classList.remove('bg-red-600', 'text-white');
+        btn.classList.add('bg-slate-800', 'text-slate-300');
+      });
+      document.getElementById(`btn-tab-${tabId}`).classList.remove('bg-slate-800', 'text-slate-300');
+      document.getElementById(`btn-tab-${tabId}`).classList.add('bg-red-600', 'text-white');
+
+      document.querySelectorAll('.screener-content-panel').forEach(panel => panel.classList.add('hidden'));
+      document.getElementById(`tab-${tabId}`).classList.remove('hidden');
+    }
+
+    function autoCalcTotalArea() {
+      const floors = parseInt(document.getElementById('sc-floors').value) || 1;
+      const floorArea = parseFloat(document.getElementById('sc-area-floor').value) || 100;
+      const total = floors * floorArea;
+      document.getElementById('sc-total-area').value = total;
+      document.getElementById('sc-volume').value = Math.round(total * 3.2);
+      runPcccScreener();
+    }
+
+    function runPcccScreener() {
+      const occKey = document.getElementById('sc-occ').value;
+      const floors = parseInt(document.getElementById('sc-floors').value) || 1;
+      const basements = parseInt(document.getElementById('sc-basements').value) || 0;
+      const height = parseFloat(document.getElementById('sc-height').value) || 15;
+      const totalArea = parseFloat(document.getElementById('sc-total-area').value) || 500;
+      const volume = parseFloat(document.getElementById('sc-volume').value) || 1500;
+
+      const occData = occDatabase[occKey];
+      if (!occData) return;
+
+      document.getElementById('res-occ-name').textContent = occData.name;
+
+      const td = occData.thamDuyet(floors, height, totalArea, volume, basements);
+      const bc = occData.baoChay(floors, height, totalArea, volume, basements);
+      const sp = occData.sprinkler(floors, height, totalArea, volume, basements);
+      const hn = occData.hongNuoc(floors, height, totalArea, volume);
+
+      const stampBadge = document.getElementById('res-stamp-badge');
+      if (td.required) {
+        stampBadge.textContent = 'PHẢI THẨM ĐỊNH PCCC';
+        stampBadge.className = 'px-2.5 py-1 rounded-lg text-xs font-black bg-red-100 text-red-700 border border-red-200';
+      } else {
+        stampBadge.textContent = 'KHÔNG THUỘC DIỆN THẨM ĐỊNH';
+        stampBadge.className = 'px-2.5 py-1 rounded-lg text-xs font-black bg-emerald-100 text-emerald-700 border border-emerald-200';
+      }
+
+      // Estimate Extinguishers: 1 bình 4kg / 50-75m2
+      const numExtinguishers = Math.max(2, Math.ceil(totalArea / 60));
+      const numCo2 = Math.max(1, Math.ceil(totalArea / 150));
+
+      const html = `
+        <!-- Item 1: Thẩm duyệt -->
+        <div class="p-3 rounded-xl ${td.required ? 'bg-red-50 border border-red-200' : 'bg-slate-50 border border-slate-200'}">
+          <div class="font-bold text-slate-900 flex items-center justify-between">
+            <span>1. Diện thẩm định thiết kế (NĐ 105/2025):</span>
+            <span class="font-bold ${td.required ? 'text-red-600' : 'text-emerald-600'}">${td.required ? 'BẮT BUỘC' : 'KHÔNG BẮT BUỘC'}</span>
+          </div>
+          <p class="text-[11px] text-slate-600 mt-1">${td.note}</p>
+        </div>
+
+        <!-- Item 2: Báo cháy -->
+        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+          <div class="font-bold text-slate-900 flex items-center justify-between">
+            <span>2. Báo cháy tự động (QCVN 10:2025):</span>
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold ${bc.badge}">${bc.type}</span>
+          </div>
+          <p class="text-[11px] text-slate-600 mt-1">${bc.note}</p>
+        </div>
+
+        <!-- Item 3: Sprinkler -->
+        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+          <div class="font-bold text-slate-900 flex items-center justify-between">
+            <span>3. Chữa cháy tự động Sprinkler:</span>
+            <span class="font-bold ${sp.required ? 'text-red-600' : 'text-slate-500'}">${sp.required ? 'BẮT BUỘC' : 'CHƯA BẮT BUỘC'}</span>
+          </div>
+          <p class="text-[11px] text-slate-600 mt-1">${sp.note}</p>
+        </div>
+
+        <!-- Item 4: Họng nước -->
+        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+          <div class="font-bold text-slate-900">4. Họng nước chữa cháy trong nhà:</div>
+          <p class="text-[11px] text-slate-600 mt-0.5">${hn}</p>
+        </div>
+
+        <!-- Item 5: Bình chữa cháy xách tay -->
+        <div class="p-3 rounded-xl bg-amber-50 border border-amber-200">
+          <div class="font-bold text-amber-900">5. Định mức trang bị bình chữa cháy (TCVN 7435-1):</div>
+          <div class="text-[11px] text-slate-700 mt-1 space-y-0.5">
+            <div>• Tối thiểu <strong>${numExtinguishers} bình bột ABC 4kg MFZL4</strong> (Tem BCA)</div>
+            <div>• Tối thiểu <strong>${numCo2} bình khí CO2 3kg MT3</strong> cho phòng điện / máy tính</div>
+            <div>• Khoảng cách di chuyển đến bình: ≤ 20m</div>
+          </div>
+        </div>
+      `;
+
+      document.getElementById('res-items-container').innerHTML = html;
+    }
+
+    // Water Tank Calculator
+    function calcWaterTank() {
+      const tia = parseInt(document.getElementById('w-nuoc-tia').value) || 2;
+      const qTia = parseFloat(document.getElementById('w-nuoc-q-tia').value) || 2.5;
+      const tTn = parseFloat(document.getElementById('w-nuoc-t-tn').value) || 60;
+
+      const qSp = parseFloat(document.getElementById('w-nuoc-q-sp').value) || 30;
+      const tSp = parseFloat(document.getElementById('w-nuoc-t-sp').value) || 60;
+
+      const qNn = parseFloat(document.getElementById('w-nuoc-q-nn').value) || 15;
+      const tNn = parseFloat(document.getElementById('w-nuoc-t-nn').value) || 3;
+
+      const vTn = (tia * qTia * tTn * 60) / 1000;
+      const vSp = (qSp * tSp * 60) / 1000;
+      const vNn = (qNn * tNn * 3600) / 1000;
+      const vTong = vTn + vSp + vNn;
+
+      document.getElementById('res-v-tn').textContent = `${vTn.toFixed(1)} m³`;
+      document.getElementById('res-v-sp').textContent = `${vSp.toFixed(1)} m³`;
+      document.getElementById('res-v-nn').textContent = `${vNn.toFixed(1)} m³`;
+      document.getElementById('res-v-tong').innerHTML = `${vTong.toFixed(1)} m³ <span class="text-sm font-normal text-slate-300">(= ${(vTong * 1000).toLocaleString('vi-VN')} Lít)</span>`;
+    }
+
+    // Gas suppression calculator
+    function calcGasSuppression() {
+      const type = document.getElementById('gas-type').value;
+      const l = parseFloat(document.getElementById('gas-l').value) || 6;
+      const w = parseFloat(document.getElementById('gas-w').value) || 4;
+      const h = parseFloat(document.getElementById('gas-h').value) || 3;
+      const v = l * w * h;
+
+      const factors = {
+        fm200: { density: 0.627, bottle: 'bình FM200 70L' },
+        co2: { density: 0.70, bottle: 'cụm 2 bình CO2 45kg' },
+        solkhi: { density: 0.10, bottle: 'cụm máy Sol-khí Aerosol 7.5kg' },
+        novec: { density: 0.785, bottle: 'bình Novec 1230 80L' }
+      };
+
+      const factor = factors[type];
+      const mass = v * factor.density;
+
+      document.getElementById('gas-volume-val').textContent = `${v.toFixed(1)} m³`;
+      document.getElementById('gas-mass-val').textContent = `${mass.toFixed(2)} kg`;
+      document.getElementById('gas-bottle-suggest').textContent = `Khuyến nghị trang bị: ${Math.ceil(mass / (factor.density * 60))} ${factor.bottle}`;
+    }
+
+    // ----------------------------------------------------
+    // ESTIMATOR (TCVN 3890 - HỘ GIA ĐÌNH & DOANH NGHIỆP)
+    // ----------------------------------------------------
     const estimatorRules = {
       house: {
         title: 'Gói An Toàn Nhà Phố / Chung Cư',
@@ -1068,7 +1671,9 @@
       toggleCartDrawer(true);
     }
 
-    // Cart Management
+    // ----------------------------------------------------
+    // CART MANAGEMENT
+    // ----------------------------------------------------
     function addToCart(product, notify = true) {
       const existing = cart.find(item => item.id === product.id);
       if (existing) {
@@ -1095,14 +1700,12 @@
     function renderCart() {
       const container = document.getElementById('cart-items-container');
       const counter = document.getElementById('cart-counter');
-      const mobileCounter = document.getElementById('mobile-cart-counter');
       const drawerTotal = document.getElementById('cart-drawer-total');
 
       const totalItems = cart.reduce((sum, i) => sum + i.qty, 0);
       const totalPrice = cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
 
       counter.textContent = totalItems;
-      mobileCounter.textContent = totalItems;
       drawerTotal.textContent = `${totalPrice.toLocaleString('vi-VN')} đ`;
 
       if (cart.length === 0) {
@@ -1210,6 +1813,9 @@
 
     // Init on load
     document.addEventListener('DOMContentLoaded', () => {
+      runPcccScreener();
+      calcWaterTank();
+      calcGasSuppression();
       updateEstimator();
       renderCart();
     });
