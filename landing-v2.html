@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PCCC24 2.0 - Tổng Kho Thiết Bị PCCC Chính Hãng | Tem BCA & Tính Toán Dự Toán</title>
+  <meta name="description" content="Giao diện mới PCCC24.com - Thiết bị phòng cháy chữa cháy 100% tem kiểm định Bộ Công An. Tích hợp công cụ tính toán thiết bị PCCC thông minh theo diện tích chuẩn TCVN 3890.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS via allowlisted CDN -->
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    body {
+      font-family: 'Be Vietnam Pro', system-ui, -apple-system, sans-serif;
+    }
+    .hero-glow {
+      background: radial-gradient(circle at 50% 20%, rgba(239, 68, 68, 0.15), transparent 70%);
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(226, 232, 240, 0.8);
+    }
+    .badge-bca {
+      background: linear-gradient(135deg, #fef08a 0%, #fde047 100%);
+      border: 1px solid #ca8a04;
+      color: #854d0e;
+    }
+    .fire-gradient {
+      background: linear-gradient(135deg, #ef4444 0%, #dc2626 50%, #b91c1c 100%);
+    }
+    .fire-gradient-hover:hover {
+      background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    }
+    .navy-gradient {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-red-500 selection:text-white pb-20 lg:pb-0">
+
+  <!-- ======================================================== -->
+  <!-- 0. TOP VERSION SWITCHER BANNER -->
+  <!-- ======================================================== -->
+  <div class="bg-slate-900 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-red-600/30 text-red-400 border border-red-500/40">
+          ✨ Giao diện Mới 2.0 (Smart Portal)
+        </span>
+        <span class="hidden sm:inline text-slate-400">|</span>
+        <span class="hidden sm:inline text-slate-300 font-medium">Tự động tính dự toán PCCC & Đặt mua siêu tốc</span>
+      </div>
+      <div class="flex items-center gap-3 ml-auto">
+        <a href="index.html" class="inline-flex items-center gap-1.5 text-amber-400 hover:text-amber-300 font-medium transition-colors bg-slate-800/80 px-2.5 py-1 rounded-md border border-slate-700 hover:border-slate-600">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+          <span>Chuyển sang Giao diện 1.0 (Cơ bản)</span>
+        </a>
+        <a href="tel:0968242424" class="text-red-400 font-bold hover:text-red-300 transition-colors flex items-center gap-1">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          0968.24.24.24
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- 1. MAIN HEADER & NAVIGATION -->
+  <!-- ======================================================== -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="w-12 h-12 rounded-2xl fire-gradient flex items-center justify-center text-white shadow-lg shadow-red-500/30 group-hover:scale-105 transition-transform">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="text-2xl font-black tracking-tight text-slate-900 leading-none">
+              PCCC<span class="text-red-600">24</span><span class="text-xs ml-1 font-semibold text-slate-400">.COM</span>
+            </div>
+            <p class="text-xs font-semibold text-slate-500 tracking-wide mt-1 uppercase">Hoàng Quân Phát • PCCC Chính Hãng</p>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-700">
+          <a href="#estimator" class="hover:text-red-600 transition-colors flex items-center gap-1.5 text-red-600">
+            <span class="w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
+            Tính Dự Toán PCCC
+          </a>
+          <a href="#products" class="hover:text-red-600 transition-colors">Danh Mục Thiết Bị</a>
+          <a href="#solutions" class="hover:text-red-600 transition-colors">Gia Đình & Dự Án</a>
+          <a href="#bca-trust" class="hover:text-red-600 transition-colors">Tem Kiểm Định</a>
+          <a href="#faq" class="hover:text-red-600 transition-colors">Hỏi Đáp</a>
+        </nav>
+
+        <!-- Header Actions -->
+        <div class="flex items-center gap-3">
+          <!-- Cart Drawer Button -->
+          <button onclick="toggleCartDrawer(true)" class="relative p-2.5 rounded-xl border border-slate-200 hover:border-red-300 hover:bg-red-50/50 text-slate-700 hover:text-red-600 transition-all flex items-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+            </svg>
+            <span class="hidden sm:inline text-xs font-bold">Giỏ hàng</span>
+            <span id="cart-counter" class="w-5 h-5 rounded-full bg-red-600 text-white text-[11px] font-bold flex items-center justify-center shadow-sm">0</span>
+          </button>
+
+          <!-- Hotline CTA -->
+          <a href="tel:0968242424" class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-xl fire-gradient fire-gradient-hover text-white text-xs font-bold shadow-md shadow-red-500/20 transition-all transform hover:-translate-y-0.5">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            <span>0968.24.24.24</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================== -->
+  <!-- 2. HERO SECTION -->
+  <!-- ======================================================== -->
+  <section class="relative hero-glow pt-10 pb-16 lg:pt-16 lg:pb-24 overflow-hidden border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Hero Left Column -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-100/80 border border-red-200 text-red-700 text-xs font-bold tracking-wide">
+            <span class="w-2 h-2 rounded-full bg-red-600"></span>
+            TỔNG KHO THIẾT BỊ PCCC CHÍNH HÃNG - HOÀNG QUÂN PHÁT
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl lg:text-5xl font-black text-slate-950 tracking-tight leading-[1.15]">
+            Giải Pháp Phòng Cháy An Toàn <br class="hidden sm:block">
+            <span class="text-transparent bg-clip-text fire-gradient">100% Tem Kiểm Định BCA</span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
+            PCCC24 cung cấp trực tiếp bình chữa cháy, thiết bị báo khói tự động, vòi cứu hỏa dán sẵn tem Cục Cảnh sát PCCC & CNCH. Giao hỏa tốc <strong>2 giờ nội thành</strong>, hỗ trợ trọn gói hồ sơ nghiệm thu dự án cho doanh nghiệp.
+          </p>
+
+          <div class="flex flex-wrap gap-4 pt-2">
+            <a href="#estimator" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl fire-gradient fire-gradient-hover text-white text-sm font-bold shadow-xl shadow-red-500/25 transition-all transform hover:-translate-y-0.5">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+              <span>Tính Toán Thiết Bị Ngay</span>
+            </a>
+            <a href="#products" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white border-2 border-slate-300 hover:border-slate-400 text-slate-800 text-sm font-bold shadow-sm transition-all hover:bg-slate-50">
+              <svg class="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+              <span>Xem Danh Mục Sản Phẩm</span>
+            </a>
+          </div>
+
+          <!-- Trust Counters Grid -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-slate-200">
+            <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
+              <div class="text-xl font-black text-red-600">100%</div>
+              <div class="text-xs font-semibold text-slate-600 mt-0.5">Tem Kiểm Định BCA</div>
+            </div>
+            <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
+              <div class="text-xl font-black text-slate-900">2 Giờ</div>
+              <div class="text-xs font-semibold text-slate-600 mt-0.5">Giao Nhanh Nội Thành</div>
+            </div>
+            <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
+              <div class="text-xl font-black text-slate-900">12 - 24T</div>
+              <div class="text-xs font-semibold text-slate-600 mt-0.5">Bảo Hành 1 Đổi 1</div>
+            </div>
+            <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
+              <div class="text-xl font-black text-emerald-600">CO / CQ</div>
+              <div class="text-xs font-semibold text-slate-600 mt-0.5">Hồ Sơ Nghiệm Thu</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Right Column: Interactive Featured Product Hero Card -->
+        <div class="lg:col-span-5">
+          <div class="relative bg-gradient-to-br from-slate-900 to-slate-950 text-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-slate-800">
+            <!-- Top Tag -->
+            <div class="flex items-center justify-between mb-6">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full badge-bca text-xs font-bold">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                Dán Sẵn Tem Kiểm Định
+              </span>
+              <span class="text-xs font-bold text-emerald-400 flex items-center gap-1">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                Sẵn kho giao ngay
+              </span>
+            </div>
+
+            <!-- Product Visual -->
+            <div class="flex flex-col items-center justify-center my-4 py-4 bg-slate-800/50 rounded-2xl border border-slate-700/60 relative overflow-hidden">
+              <div class="absolute inset-0 bg-radial-gradient from-red-500/10 to-transparent pointer-events-none"></div>
+              
+              <!-- Extinguisher SVG Graphic -->
+              <svg width="120" height="170" viewBox="0 0 100 160" fill="none" class="filter drop-shadow-xl hover:scale-105 transition-transform duration-300">
+                <path d="M42 20h16v12H42z" fill="#475569"/>
+                <path d="M36 24h28v6H36z" fill="#334155"/>
+                <path d="M50 14v10" stroke="#1e293b" stroke-width="4" stroke-linecap="round"/>
+                <path d="M46 14h8" stroke="#1e293b" stroke-width="4" stroke-linecap="round"/>
+                <path d="M58 26l14 8" stroke="#1e293b" stroke-width="3" stroke-linecap="round"/>
+                <path d="M60 28c12 0 18 16 18 32v40" stroke="#0f172a" stroke-width="5" stroke-linecap="round" fill="none"/>
+                <circle cx="36" cy="28" r="5" fill="#f8fafc" stroke="#1e293b" stroke-width="2"/>
+                <path d="M36 28l2-2" stroke="#16a34a" stroke-width="1.5"/>
+                <rect x="25" y="32" width="50" height="110" rx="12" fill="#dc2626"/>
+                <rect x="27" y="34" width="46" height="106" rx="10" fill="#ef4444"/>
+                <path d="M32 40v90" stroke="#ffffff" stroke-opacity="0.35" stroke-width="4" stroke-linecap="round"/>
+                <rect x="30" y="58" width="40" height="52" rx="3" fill="#ffffff"/>
+                <rect x="33" y="62" width="34" height="6" fill="#1e293b"/>
+                <text x="35" y="67" font-size="5" font-weight="bold" fill="#ffffff" font-family="sans-serif">BÌNH BỘT ABC</text>
+                <text x="35" y="76" font-size="6" font-weight="bold" fill="#dc2626" font-family="sans-serif">4KG MFZL4</text>
+                <rect x="33" y="80" width="34" height="2" fill="#e2e8f0"/>
+                <text x="35" y="87" font-size="4" fill="#334155" font-family="sans-serif">TIÊU CHUẨN BCA</text>
+                <rect x="33" y="90" width="16" height="14" rx="1" fill="#fef08a" stroke="#ca8a04" stroke-width="0.5"/>
+                <text x="35" y="99" font-size="3.5" font-weight="bold" fill="#854d0e" font-family="sans-serif">TEM BCA</text>
+                <path d="M22 142h56v8H22z" fill="#0f172a" rx="4"/>
+              </svg>
+
+              <div class="mt-3 text-center">
+                <div class="text-sm font-bold text-white">Bình Bột Chữa Cháy ABC 4kg MFZL4</div>
+                <div class="text-xs text-slate-400">Chuẩn TCVN 7026 • Dập cháy loại A, B, C</div>
+              </div>
+            </div>
+
+            <!-- Price & Fast Order Row -->
+            <div class="flex items-center justify-between pt-2">
+              <div>
+                <div class="text-xs text-slate-400">Giá niêm yết ưu đãi:</div>
+                <div class="text-2xl font-black text-amber-400">280.000 <span class="text-xs text-slate-300">đ</span></div>
+              </div>
+              <button onclick="addToCart({id: 'mfzl4', name: 'Bình Bột Chữa Cháy ABC 4kg MFZL4', price: 280000, qty: 1})" class="px-5 py-2.5 rounded-xl fire-gradient fire-gradient-hover text-white text-xs font-bold shadow-lg shadow-red-600/40 transition-all flex items-center gap-1.5">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                Thêm Vào Giỏ
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- 3. SMART PCCC SAFETY ESTIMATOR (TÍNH TOÁN DỰ TOÁN PCCC) -->
+  <!-- ======================================================== -->
+  <section id="estimator" class="py-16 bg-white border-b border-slate-200 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-red-50 text-red-600 border border-red-200 text-xs font-bold tracking-wider uppercase">
+          ⚡ TÍNH TOÁN THÔNG MINH
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight mt-3">
+          Công Cụ Tính Toán Thiết Bị PCCC Theo Quy Chuẩn
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base mt-2">
+          Hệ thống tự động đề xuất số lượng bình chữa cháy, đầu báo khói và trang bị cần thiết theo quy chuẩn <strong>TCVN 3890</strong> phù hợp với diện tích thực tế.
+        </p>
+      </div>
+
+      <!-- Estimator Interactive Card -->
+      <div class="max-w-4xl mx-auto bg-slate-900 text-white rounded-3xl p-6 sm:p-10 shadow-2xl border border-slate-800">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+          
+          <!-- Input Controls (7 cols) -->
+          <div class="md:col-span-7 space-y-6">
+            <h3 class="text-lg font-bold text-amber-400 flex items-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+              1. Nhập thông tin không gian của bạn
+            </h3>
+
+            <!-- Property Type Select -->
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Loại hình công trình:</label>
+              <div class="grid grid-cols-2 gap-2">
+                <button type="button" onclick="setEstimatorType('house')" id="type-house" class="type-btn active text-left p-3 rounded-xl border border-red-500 bg-red-600/20 text-white text-xs font-bold transition-all">
+                  🏠 Nhà phố / Căn hộ
+                </button>
+                <button type="button" onclick="setEstimatorType('office')" id="type-office" class="type-btn text-left p-3 rounded-xl border border-slate-700 bg-slate-800/80 text-slate-300 text-xs font-bold transition-all hover:border-slate-600">
+                  🏢 Văn phòng / Cửa hàng
+                </button>
+                <button type="button" onclick="setEstimatorType('restaurant')" id="type-restaurant" class="type-btn text-left p-3 rounded-xl border border-slate-700 bg-slate-800/80 text-slate-300 text-xs font-bold transition-all hover:border-slate-600">
+                  🍲 Nhà hàng / Bếp ăn
+                </button>
+                <button type="button" onclick="setEstimatorType('factory')" id="type-factory" class="type-btn text-left p-3 rounded-xl border border-slate-700 bg-slate-800/80 text-slate-300 text-xs font-bold transition-all hover:border-slate-600">
+                  🏭 Nhà xưởng / Kho hàng
+                </button>
+              </div>
+            </div>
+
+            <!-- Area Slider -->
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <label class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Tổng diện tích mặt sàn:</label>
+                <span class="text-base font-black text-amber-400"><span id="area-val">80</span> m²</span>
+              </div>
+              <input type="range" id="area-slider" min="20" max="1000" step="10" value="80" oninput="updateEstimator()" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-red-500">
+              <div class="flex justify-between text-[11px] text-slate-400 mt-1">
+                <span>20 m²</span>
+                <span>250 m²</span>
+                <span>500 m²</span>
+                <span>1.000 m²</span>
+              </div>
+            </div>
+
+            <!-- Floor Count Select -->
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <label class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Số tầng xây dựng:</label>
+                <span class="text-base font-black text-amber-400"><span id="floors-val">2</span> tầng</span>
+              </div>
+              <input type="range" id="floors-slider" min="1" max="10" step="1" value="2" oninput="updateEstimator()" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-red-500">
+              <div class="flex justify-between text-[11px] text-slate-400 mt-1">
+                <span>1 tầng</span>
+                <span>5 tầng</span>
+                <span>10 tầng</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Output Suggestion Box (5 cols) -->
+          <div class="md:col-span-5 bg-slate-800/90 rounded-2xl p-6 border border-slate-700 space-y-4">
+            <div class="border-b border-slate-700 pb-3">
+              <div class="text-xs font-bold text-slate-400 uppercase tracking-wider">Gói Thiết Bị Khuyến Nghị</div>
+              <div class="text-sm font-bold text-white mt-0.5" id="suggestion-title">Gói An Toàn Nhà Phố Chuẩn</div>
+            </div>
+
+            <!-- List of estimated equipment -->
+            <div class="space-y-2.5 text-xs" id="estimated-items">
+              <!-- Dynamically populated by JS -->
+            </div>
+
+            <!-- Estimated Cost -->
+            <div class="pt-4 border-t border-slate-700">
+              <div class="flex items-baseline justify-between">
+                <span class="text-xs text-slate-400">Tổng chi phí dự tính:</span>
+                <span class="text-xl font-black text-amber-400" id="estimated-total-price">805.000 đ</span>
+              </div>
+              <div class="text-[11px] text-emerald-400 mt-0.5 flex items-center gap-1">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                100% Đã gồm tem kiểm định & bảo hành 12-24T
+              </div>
+            </div>
+
+            <!-- Action buttons -->
+            <div class="space-y-2 pt-2">
+              <button onclick="addEstimatorToCart()" class="w-full py-2.5 rounded-xl fire-gradient fire-gradient-hover text-white text-xs font-bold shadow-md shadow-red-600/30 transition-all flex items-center justify-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                Thêm Gói Này Vào Giỏ Hàng
+              </button>
+              <a href="tel:0968242424" class="w-full py-2.5 rounded-xl bg-slate-700 hover:bg-slate-600 text-slate-200 text-xs font-bold transition-colors flex items-center justify-center gap-2">
+                <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                Kỹ Sư Tư Vấn 0968.24.24.24
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- 4. PRODUCT CATALOG WITH CATEGORY FILTER -->
+  <!-- ======================================================== -->
+  <section id="products" class="py-16 bg-slate-50 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+        <div>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-100 text-red-700 text-xs font-bold uppercase tracking-wider">
+            DANH MỤC THIẾT BỊ
+          </span>
+          <h2 class="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight mt-2">
+            Thiết Bị PCCC Chuẩn Kiểm Định
+          </h2>
+          <p class="text-slate-600 text-sm mt-1">
+            Đầy đủ chứng chỉ CO/CQ, dán tem Cục CS PCCC và chính sách 1 đổi 1 trong 12 - 24 tháng.
+          </p>
+        </div>
+
+        <!-- Filter Tab Buttons -->
+        <div class="flex flex-wrap gap-2">
+          <button onclick="filterProducts('all')" class="filter-tab-btn active px-3.5 py-1.5 rounded-lg text-xs font-bold bg-slate-900 text-white shadow-sm transition-all" data-category="all">
+            Tất Cả
+          </button>
+          <button onclick="filterProducts('extinguisher')" class="filter-tab-btn px-3.5 py-1.5 rounded-lg text-xs font-bold bg-white text-slate-700 border border-slate-300 hover:bg-slate-100 transition-all" data-category="extinguisher">
+            Bình Chữa Cháy
+          </button>
+          <button onclick="filterProducts('alarm')" class="filter-tab-btn px-3.5 py-1.5 rounded-lg text-xs font-bold bg-white text-slate-700 border border-slate-300 hover:bg-slate-100 transition-all" data-category="alarm">
+            Báo Cháy Tự Động
+          </button>
+          <button onclick="filterProducts('hose-box')" class="filter-tab-btn px-3.5 py-1.5 rounded-lg text-xs font-bold bg-white text-slate-700 border border-slate-300 hover:bg-slate-100 transition-all" data-category="hose-box">
+            Vòi & Tủ PCCC
+          </button>
+          <button onclick="filterProducts('escape')" class="filter-tab-btn px-3.5 py-1.5 rounded-lg text-xs font-bold bg-white text-slate-700 border border-slate-300 hover:bg-slate-100 transition-all" data-category="escape">
+            Đồ Thoát Hiểm
+          </button>
+        </div>
+      </div>
+
+      <!-- Product Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="product-grid-container">
+        
+        <!-- Product 1 -->
+        <div class="product-item-card bg-white rounded-2xl border border-slate-200 p-5 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between" data-category="extinguisher">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="badge-bca px-2.5 py-1 rounded-md text-[11px] font-bold">Tem BCA & CO/CQ</span>
+              <span class="text-xs font-semibold text-emerald-600">● Sẵn kho</span>
+            </div>
+            <div class="h-40 bg-slate-50 rounded-xl flex items-center justify-center mb-4 p-2 relative">
+              <svg width="70" height="120" viewBox="0 0 100 160" fill="none">
+                <path d="M42 20h16v12H42z" fill="#475569"/>
+                <path d="M36 24h28v6H36z" fill="#334155"/>
+                <path d="M50 14v10" stroke="#1e293b" stroke-width="4" stroke-linecap="round"/>
+                <rect x="25" y="32" width="50" height="110" rx="12" fill="#dc2626"/>
+                <rect x="30" y="58" width="40" height="46" rx="2" fill="#fff"/>
+                <text x="34" y="70" font-size="5" font-weight="bold" fill="#dc2626">BỘT ABC 4KG</text>
+                <text x="34" y="80" font-size="4" fill="#334155">MFZL4</text>
+                <path d="M22 142h56v8H22z" fill="#0f172a" rx="4"/>
+              </svg>
+            </div>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-red-600">Bình Chữa Cháy Bột</span>
+            <h3 class="text-base font-bold text-slate-900 mt-1 leading-snug">Bình Bột Chữa Cháy ABC 4kg MFZL4</h3>
+            <ul class="text-xs text-slate-600 mt-2 space-y-1.5">
+              <li>• Trọng lượng bột 4kg, dập cháy chất rắn, lỏng, khí</li>
+              <li>• Trang bị sẵn đồng hồ đo áp lực & chốt an toàn</li>
+              <li>• Chuẩn TCVN 7026 cho nhà ở, văn phòng, xe tải</li>
+            </ul>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between">
+            <div>
+              <div class="text-lg font-black text-red-600">280.000 đ</div>
+              <div class="text-xs text-slate-400 line-through">340.000 đ</div>
+            </div>
+            <button onclick="addToCart({id: 'mfzl4', name: 'Bình Bột Chữa Cháy ABC 4kg MFZL4', price: 280000, qty: 1})" class="px-4 py-2 rounded-xl bg-slate-900 hover:bg-red-600 text-white text-xs font-bold transition-colors">
+              + Giỏ hàng
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-item-card bg-white rounded-2xl border border-slate-200 p-5 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between" data-category="extinguisher">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="badge-bca px-2.5 py-1 rounded-md text-[11px] font-bold">Tem BCA & CO/CQ</span>
+              <span class="text-xs font-semibold text-emerald-600">● Sẵn kho</span>
+            </div>
+            <div class="h-40 bg-slate-50 rounded-xl flex items-center justify-center mb-4 p-2 relative">
+              <svg width="60" height="120" viewBox="0 0 100 160" fill="none">
+                <rect x="30" y="24" width="40" height="120" rx="10" fill="#dc2626"/>
+                <path d="M44 14v10" stroke="#1e293b" stroke-width="4"/>
+                <path d="M60 26c10 0 16 16 16 36v30" stroke="#1e293b" stroke-width="6" fill="none"/>
+                <rect x="34" y="60" width="32" height="40" rx="2" fill="#fff"/>
+                <text x="38" y="72" font-size="5" font-weight="bold" fill="#0f172a">CO2 3KG</text>
+                <text x="38" y="82" font-size="4" fill="#64748b">MT3</text>
+              </svg>
+            </div>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500">Bình Khí CO2</span>
+            <h3 class="text-base font-bold text-slate-900 mt-1 leading-snug">Bình Khí Chữa Cháy CO2 3kg MT3</h3>
+            <ul class="text-xs text-slate-600 mt-2 space-y-1.5">
+              <li>• Khí CO2 lạnh nguyên chất -79°C không để lại cặn</li>
+              <li>• Chuyên dụng cho phòng server, tủ điện, máy móc</li>
+              <li>• Thân bình đúc dày chịu áp suất cực cao</li>
+            </ul>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between">
+            <div>
+              <div class="text-lg font-black text-red-600">390.000 đ</div>
+              <div class="text-xs text-slate-400 line-through">460.000 đ</div>
+            </div>
+            <button onclick="addToCart({id: 'mt3', name: 'Bình Khí Chữa Cháy CO2 3kg MT3', price: 390000, qty: 1})" class="px-4 py-2 rounded-xl bg-slate-900 hover:bg-red-600 text-white text-xs font-bold transition-colors">
+              + Giỏ hàng
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-item-card bg-white rounded-2xl border border-slate-200 p-5 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between" data-category="alarm">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="bg-amber-100 text-amber-800 border border-amber-300 px-2.5 py-1 rounded-md text-[11px] font-bold">Khuyên Dùng Gia Đình</span>
+              <span class="text-xs font-semibold text-emerald-600">● Sẵn kho</span>
+            </div>
+            <div class="h-40 bg-slate-50 rounded-xl flex items-center justify-center mb-4 p-2 relative">
+              <svg width="80" height="80" viewBox="0 0 100 100" fill="none">
+                <circle cx="50" cy="50" r="40" fill="#ffffff" stroke="#cbd5e1" stroke-width="4"/>
+                <circle cx="50" cy="50" r="28" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+                <circle cx="50" cy="50" r="10" fill="#dc2626"/>
+                <path d="M50 30v-6M50 76v-6M30 50h-6M76 50h-6" stroke="#94a3b8" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-amber-600">Báo Cháy Tự Động</span>
+            <h3 class="text-base font-bold text-slate-900 mt-1 leading-snug">Đầu Báo Khói Độc Lập Không Dây (Pin 5 Năm)</h3>
+            <ul class="text-xs text-slate-600 mt-2 space-y-1.5">
+              <li>• Còi hú cực lớn 85dB tại chỗ cảnh báo ban đêm</li>
+              <li>• Dùng pin 9V độc lập không cần đục tường đi dây</li>
+              <li>• Cảm biến quang điện siêu nhạy phát hiện khói sớm</li>
+            </ul>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between">
+            <div>
+              <div class="text-lg font-black text-red-600">245.000 đ</div>
+              <div class="text-xs text-slate-400 line-through">310.000 đ</div>
+            </div>
+            <button onclick="addToCart({id: 'smoke_sensor', name: 'Đầu Báo Khói Độc Lập Không Dây', price: 245000, qty: 1})" class="px-4 py-2 rounded-xl bg-slate-900 hover:bg-red-600 text-white text-xs font-bold transition-colors">
+              + Giỏ hàng
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-item-card bg-white rounded-2xl border border-slate-200 p-5 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between" data-category="hose-box">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="bg-blue-100 text-blue-800 border border-blue-200 px-2.5 py-1 rounded-md text-[11px] font-bold">Chuẩn TCVN 5740</span>
+              <span class="text-xs font-semibold text-emerald-600">● Sẵn kho</span>
+            </div>
+            <div class="h-40 bg-slate-50 rounded-xl flex items-center justify-center mb-4 p-2 relative">
+              <svg width="90" height="90" viewBox="0 0 100 100" fill="none">
+                <circle cx="50" cy="50" r="38" stroke="#dc2626" stroke-width="12" fill="none"/>
+                <circle cx="50" cy="50" r="22" stroke="#cbd5e1" stroke-width="8" fill="none"/>
+                <circle cx="50" cy="50" r="10" fill="#334155"/>
+                <rect x="75" y="44" width="18" height="12" rx="2" fill="#64748b"/>
+              </svg>
+            </div>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-blue-600">Vòi & Khớp Nối</span>
+            <h3 class="text-base font-bold text-slate-900 mt-1 leading-snug">Cuộn Vòi Chữa Cháy D50/D65 Kèm Khớp Nối</h3>
+            <ul class="text-xs text-slate-600 mt-2 space-y-1.5">
+              <li>• Chiều dài 20m, áp lực chịu tải 13 - 16 Bar</li>
+              <li>• Vải Polyester chống mài mòn, lót cao su chống rách</li>
+              <li>• Đã ép sẵn 2 đầu khớp nối nhôm tiêu chuẩn</li>
+            </ul>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between">
+            <div>
+              <div class="text-lg font-black text-red-600">520.000 đ</div>
+              <div class="text-xs text-slate-400 line-through">620.000 đ</div>
+            </div>
+            <button onclick="addToCart({id: 'hose_d50', name: 'Cuộn Vòi Chữa Cháy D50 Kèm Khớp Nối', price: 520000, qty: 1})" class="px-4 py-2 rounded-xl bg-slate-900 hover:bg-red-600 text-white text-xs font-bold transition-colors">
+              + Giỏ hàng
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="product-item-card bg-white rounded-2xl border border-slate-200 p-5 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between" data-category="hose-box">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="bg-slate-100 text-slate-800 border border-slate-200 px-2.5 py-1 rounded-md text-[11px] font-bold">Sơn Tĩnh Điện</span>
+              <span class="text-xs font-semibold text-emerald-600">● Sẵn kho</span>
+            </div>
+            <div class="h-40 bg-slate-50 rounded-xl flex items-center justify-center mb-4 p-2 relative">
+              <svg width="90" height="90" viewBox="0 0 100 100" fill="none">
+                <rect x="20" y="15" width="60" height="70" rx="4" fill="#dc2626"/>
+                <rect x="30" y="25" width="40" height="50" rx="2" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+                <text x="36" y="52" font-size="6" font-weight="bold" fill="#dc2626">PCCC</text>
+                <circle cx="26" cy="50" r="3" fill="#cbd5e1"/>
+              </svg>
+            </div>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-red-600">Tủ & Kệ PCCC</span>
+            <h3 class="text-base font-bold text-slate-900 mt-1 leading-snug">Tủ Đựng Bình & Cuộn Vòi Chữa Cháy (400x600)</h3>
+            <ul class="text-xs text-slate-600 mt-2 space-y-1.5">
+              <li>• Kích thước: 400 x 600 x 200 mm, tôn dày 1.0mm</li>
+              <li>• Sơn tĩnh điện chống rỉ sét, kính dày 3mm</li>
+              <li>• Đựng vừa 2 bình chữa cháy hoặc 1 cuộn vòi + lăng</li>
+            </ul>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between">
+            <div>
+              <div class="text-lg font-black text-red-600">320.000 đ</div>
+              <div class="text-xs text-slate-400 line-through">380.000 đ</div>
+            </div>
+            <button onclick="addToCart({id: 'cabinet', name: 'Tủ Đựng Bình & Cuộn Vòi Chữa Cháy', price: 320000, qty: 1})" class="px-4 py-2 rounded-xl bg-slate-900 hover:bg-red-600 text-white text-xs font-bold transition-colors">
+              + Giỏ hàng
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="product-item-card bg-white rounded-2xl border border-slate-200 p-5 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between" data-category="escape">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="bg-red-100 text-red-800 border border-red-200 px-2.5 py-1 rounded-md text-[11px] font-bold">Thoát Khói Độc</span>
+              <span class="text-xs font-semibold text-emerald-600">● Sẵn kho</span>
+            </div>
+            <div class="h-40 bg-slate-50 rounded-xl flex items-center justify-center mb-4 p-2 relative">
+              <svg width="90" height="90" viewBox="0 0 100 100" fill="none">
+                <path d="M50 15c-20 0-32 15-32 38 0 18 12 32 32 32s32-14 32-32c0-23-12-38-32-38z" fill="#cbd5e1"/>
+                <rect x="35" y="32" width="30" height="16" rx="4" fill="#38bdf8"/>
+                <circle cx="50" cy="65" r="14" fill="#d97706" stroke="#b45309" stroke-width="2"/>
+                <circle cx="50" cy="65" r="8" fill="#78350f"/>
+              </svg>
+            </div>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-amber-600">Bảo Hộ & Thoát Hiểm</span>
+            <h3 class="text-base font-bold text-slate-900 mt-1 leading-snug">Mặt Nạ Phòng Độc Lọc Khói Thoát Hiểm TZL30</h3>
+            <ul class="text-xs text-slate-600 mt-2 space-y-1.5">
+              <li>• Phin lọc than hoạt tính lọc khí độc CO, HCN ≥ 30 phút</li>
+              <li>• Tráng bạc chống bức xạ nhiệt lên đến 800°C</li>
+              <li>• Đóng gói hút chân không nguyên seal, hạn 3 năm</li>
+            </ul>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between">
+            <div>
+              <div class="text-lg font-black text-red-600">135.000 đ</div>
+              <div class="text-xs text-slate-400 line-through">180.000 đ</div>
+            </div>
+            <button onclick="addToCart({id: 'mask_tzl30', name: 'Mặt Nạ Phòng Độc Lọc Khói TZL30', price: 135000, qty: 1})" class="px-4 py-2 rounded-xl bg-slate-900 hover:bg-red-600 text-white text-xs font-bold transition-colors">
+              + Giỏ hàng
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- 5. B2C (HOUSEHOLD) & B2B (PROJECTS) SPLIT SOLUTIONS -->
+  <!-- ======================================================== -->
+  <section id="solutions" class="py-16 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold tracking-wider uppercase">
+          GIẢI PHÁP THEO ĐỐI TƯỢNG
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight mt-3">
+          Phục Vụ Chuyên Biệt Gia Đình & Doanh Nghiệp
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        
+        <!-- B2C Card -->
+        <div class="rounded-3xl border-2 border-red-200 bg-red-50/40 p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden">
+          <div class="absolute top-0 right-0 transform translate-x-4 -translate-y-4 w-32 h-32 bg-red-500/10 rounded-full blur-2xl"></div>
+          <div>
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-600 text-white text-xs font-bold uppercase tracking-wider mb-4">
+              🏠 Hộ Gia Đình & Nhà Ở
+            </div>
+            <h3 class="text-xl sm:text-2xl font-black text-slate-900">Combo Tiện Lợi & Giao Nhanh 2H</h3>
+            <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+              Bảo vệ ngôi nhà và người thân với các thiết bị gọn nhẹ, chốt an toàn dễ mở cho phụ nữ và người cao tuổi.
+            </p>
+            <div class="mt-6 space-y-3">
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-red-600 text-white flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">✓</div>
+                <span class="text-xs font-semibold text-slate-700"><strong>Combo chung cư:</strong> 1 Bình bột 4kg + 1 Báo khói không dây + 2 Mặt nạ TZL30.</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-red-600 text-white flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">✓</div>
+                <span class="text-xs font-semibold text-slate-700"><strong>Giao hỏa tốc 2 giờ:</strong> Kiểm tra hàng, xem tem BCA trước khi thanh toán.</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-red-600 text-white flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">✓</div>
+                <span class="text-xs font-semibold text-slate-700"><strong>Bảo hành 1 đổi 1:</strong> Hỗ trợ nạp sạc bình và kiểm tra định kỳ tận nơi.</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-8 pt-4 border-t border-red-200/80 flex items-center justify-between">
+            <div>
+              <div class="text-xs text-slate-500">Combo gia đình chỉ từ:</div>
+              <div class="text-xl font-black text-red-600">690.000 đ <span class="text-xs text-slate-400 line-through">865.000 đ</span></div>
+            </div>
+            <button onclick="addToCart({id: 'combo_home', name: 'Combo An Toàn Nhà Phố / Chung Cư', price: 690000, qty: 1})" class="px-5 py-2.5 rounded-xl fire-gradient fire-gradient-hover text-white text-xs font-bold shadow-md shadow-red-500/20">
+              Đặt Mua Combo
+            </button>
+          </div>
+        </div>
+
+        <!-- B2B Card -->
+        <div class="rounded-3xl border-2 border-slate-800 bg-slate-900 text-white p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden">
+          <div class="absolute top-0 right-0 transform translate-x-4 -translate-y-4 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl"></div>
+          <div>
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-amber-400 text-xs font-bold uppercase tracking-wider mb-4">
+              🏭 Doanh Nghiệp & Nhà Xưởng
+            </div>
+            <h3 class="text-xl sm:text-2xl font-black text-white">Báo Giá Sỉ & Hồ Sơ Nghiệm Thu PCCC</h3>
+            <p class="text-sm text-slate-300 mt-2 leading-relaxed">
+              Cung ứng số lượng lớn cho nhà xưởng, tòa nhà văn phòng, nhà thầu xây dựng M&E với pháp lý chuẩn chỉnh 100%.
+            </p>
+            <div class="mt-6 space-y-3">
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-amber-400 text-slate-900 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">✓</div>
+                <span class="text-xs font-medium text-slate-200"><strong>Hồ sơ nghiệm thu đầy đủ:</strong> Biên bản kiểm định Cục PCCC, CO/CQ, VAT 100%.</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-amber-400 text-slate-900 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">✓</div>
+                <span class="text-xs font-medium text-slate-200"><strong>Chiết khấu sỉ trực tiếp:</strong> Giá cạnh tranh nhất từ tổng kho Hoàng Quân Phát.</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-amber-400 text-slate-900 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">✓</div>
+                <span class="text-xs font-medium text-slate-200"><strong>Đồng hành kỹ thuật:</strong> Kỹ sư PCCC tư vấn vị trí lắp đặt chuẩn TCVN.</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800 flex items-center justify-between">
+            <div>
+              <div class="text-xs text-slate-400">Phòng Dự Án / Báo Giá Sỉ:</div>
+              <div class="text-lg font-black text-amber-400">0968.24.24.24</div>
+            </div>
+            <a href="tel:0968242424" class="px-5 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 text-xs font-black shadow-lg shadow-amber-400/20 transition-all">
+              Yêu Cầu Báo Giá Sỉ
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- 6. BCA TRUST & VERIFICATION EXPLAINER -->
+  <!-- ======================================================== -->
+  <section id="bca-trust" class="py-16 bg-slate-900 text-white border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-6 space-y-4">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-600/30 text-red-400 border border-red-500/40 text-xs font-bold uppercase tracking-wider">
+            PHÁP LÝ & AN TOÀN TUYỆT ĐỐI
+          </div>
+          <h2 class="text-2xl sm:text-4xl font-black tracking-tight text-white">
+            100% Thiết Bị Dán Tem Kiểm Định Cục CS PCCC & CNCH
+          </h2>
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+            Tại PCCC24 (Công ty TNHH MTV Hoàng Quân Phát), mọi bình chữa cháy và phụ kiện đều phải trải qua quá trình kiểm định áp lực, khả năng dập lửa và dán tem kiểm định chính thức của Bộ Công An trước khi xuất kho.
+          </p>
+          <div class="grid grid-cols-2 gap-4 pt-4">
+            <div class="p-4 rounded-xl bg-slate-800 border border-slate-700">
+              <div class="text-amber-400 font-bold text-sm">✓ Mã QR & Số Serial</div>
+              <div class="text-xs text-slate-300 mt-1">Mỗi bình sở hữu số serial định danh riêng biệt tra cứu trên hệ thống quản lý.</div>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-800 border border-slate-700">
+              <div class="text-emerald-400 font-bold text-sm">✓ Nghiệm Thu Thuận Lợi</div>
+              <div class="text-xs text-slate-300 mt-1">Hồ sơ giấy tờ chuẩn chỉnh giúp doanh nghiệp vượt qua các kỳ kiểm tra an toàn.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6">
+          <div class="p-6 sm:p-8 rounded-3xl bg-slate-800/80 border border-slate-700 shadow-xl space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-700 pb-3">
+              <span class="text-xs font-bold text-slate-400">MẪU TEM KIỂM ĐỊNH MẪU BCA</span>
+              <span class="text-xs font-bold text-amber-400">CHUẨN QUY ĐỊNH 2024</span>
+            </div>
+            <div class="bg-amber-100 text-slate-900 p-5 rounded-2xl border-2 border-amber-400 space-y-2">
+              <div class="flex items-center justify-between">
+                <div class="text-xs font-black text-red-700 tracking-wider">CỤC CẢNH SÁT PCCC & CNCH</div>
+                <span class="text-[10px] font-bold bg-red-600 text-white px-2 py-0.5 rounded">TEM BỘ CÔNG AN</span>
+              </div>
+              <div class="text-sm font-bold">GIẤY CHỨNG NHẬN KIỂM ĐỊNH PHƯƠNG TIỆN PCCC</div>
+              <div class="text-xs text-slate-700 font-mono">Số KĐ: BCA-PCCC-2024-HQ8945</div>
+              <div class="text-[11px] text-slate-600">Đơn vị phân phối: CÔNG TY TNHH MTV HOÀNG QUÂN PHÁT</div>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              * Khách hàng nhận hàng có quyền quét mã kiểm tra hoặc yêu cầu xuất trình bản photo công chứng Giấy chứng nhận kiểm định theo lô.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- 7. INTERACTIVE FAQ ACCORDION -->
+  <!-- ======================================================== -->
+  <section id="faq" class="py-16 bg-white border-b border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-wider">
+          HỎI ĐÁP THẮC MẮC
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mt-2">
+          Câu Hỏi Thường Gặp Về Thiết Bị & Pháp Lý
+        </h2>
+      </div>
+
+      <div class="space-y-3" id="faq-accordion">
+        
+        <div class="border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+          <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left bg-slate-50 hover:bg-slate-100 font-bold text-slate-900 text-sm transition-colors">
+            <span>Bình chữa cháy tại PCCC24 có sẵn tem kiểm định của Bộ Công An không?</span>
+            <span class="faq-icon text-red-600 font-black text-lg transition-transform">+</span>
+          </button>
+          <div class="faq-content hidden p-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200 bg-white">
+            <strong>Có, 100% thiết bị đều có sẵn tem kiểm định.</strong> Toàn bộ bình bột ABC, bình khí CO2 và thiết bị cảnh báo do PCCC24 phân phối đều dán tem kiểm định của Cục Cảnh sát PCCC & CNCH kèm biên bản theo lô, đáp ứng đầy đủ quy định kiểm tra pháp lý.
+          </div>
+        </div>
+
+        <div class="border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+          <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left bg-slate-50 hover:bg-slate-100 font-bold text-slate-900 text-sm transition-colors">
+            <span>Hạn sử dụng của bình chữa cháy là bao lâu và khi nào cần nạp lại?</span>
+            <span class="faq-icon text-red-600 font-black text-lg transition-transform">+</span>
+          </button>
+          <div class="faq-content hidden p-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200 bg-white">
+            Bình chữa cháy mới được bảo hành chính hãng từ <strong>12 tháng</strong>. Đối với bình bột, người dùng quan sát kim đồng hồ áp suất: ở vùng xanh là hoạt động tốt, khi kim về vùng đỏ cần đem nạp sạc lại. Nên kiểm tra định kỳ 6 - 12 tháng/lần.
+          </div>
+        </div>
+
+        <div class="border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+          <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left bg-slate-50 hover:bg-slate-100 font-bold text-slate-900 text-sm transition-colors">
+            <span>Doanh nghiệp mua hàng có được xuất hóa đơn VAT và hồ sơ nghiệm thu không?</span>
+            <span class="faq-icon text-red-600 font-black text-lg transition-transform">+</span>
+          </button>
+          <div class="faq-content hidden p-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200 bg-white">
+            <strong>Có đầy đủ 100%.</strong> Công ty TNHH MTV Hoàng Quân Phát xuất hóa đơn GTGT hợp lệ, cung cấp trọn bộ CO/CQ, catalog thông số kỹ thuật và chứng từ kiểm định phục vụ nghiệm thu với cơ quan công an địa phương.
+          </div>
+        </div>
+
+        <div class="border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+          <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left bg-slate-50 hover:bg-slate-100 font-bold text-slate-900 text-sm transition-colors">
+            <span>PCCC24 giao hàng trong bao lâu và chính sách thanh toán thế nào?</span>
+            <span class="faq-icon text-red-600 font-black text-lg transition-transform">+</span>
+          </button>
+          <div class="faq-content hidden p-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200 bg-white">
+            Giao hỏa tốc trong <strong>2 giờ</strong> tại nội thành Hà Nội & TP.HCM. Tỉnh thành khác nhận hàng trong 24 - 48 giờ. Khách hàng được kiểm tra bình, tem kiểm định trước khi thanh toán tiền mặt (COD) hoặc chuyển khoản công ty.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- 8. FOOTER WITH COMPLETE CORPORATE INFO -->
+  <!-- ======================================================== -->
+  <footer class="bg-slate-950 text-slate-400 text-xs pt-12 pb-8 border-t border-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-slate-800">
+        
+        <!-- Company Info (5 cols) -->
+        <div class="md:col-span-5 space-y-4">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-lg fire-gradient flex items-center justify-center text-white font-black text-sm">
+              P
+            </div>
+            <span class="text-xl font-black text-white">PCCC<span class="text-red-500">24</span>.COM</span>
+          </div>
+          <p class="text-slate-300 font-bold text-sm">CÔNG TY TNHH MTV HOÀNG QUÂN PHÁT</p>
+          <ul class="space-y-2 text-slate-400 leading-relaxed">
+            <li><strong>Mã số doanh nghiệp:</strong> 0317894562 do Sở KH&ĐT cấp</li>
+            <li><strong>Trụ sở chính:</strong> Số 24 Đường PCCC, Phường An Khánh, TP. Thủ Đức, TP.HCM</li>
+            <li><strong>Chi nhánh Hà Nội:</strong> Tòa nhà Thiết Bị PCCC, KĐT Cầu Bươu, Thanh Trì, Hà Nội</li>
+            <li><strong>Hotline Bán Hàng 24/7:</strong> <a href="tel:0968242424" class="text-red-400 font-bold hover:underline">0968.24.24.24</a></li>
+            <li><strong>Email liên hệ:</strong> lienhe@pccc24.com / kinhdoanh@pccc24.com</li>
+          </ul>
+        </div>
+
+        <!-- Quick Links (3 cols) -->
+        <div class="md:col-span-3 space-y-3">
+          <h4 class="text-white font-bold text-sm uppercase tracking-wider">Danh Mục Thiết Bị</h4>
+          <ul class="space-y-2">
+            <li><a href="#products" class="hover:text-white transition-colors">Bình chữa cháy bột ABC 4kg</a></li>
+            <li><a href="#products" class="hover:text-white transition-colors">Bình khí CO2 3kg MT3</a></li>
+            <li><a href="#products" class="hover:text-white transition-colors">Đầu báo khói không dây</a></li>
+            <li><a href="#products" class="hover:text-white transition-colors">Cuộn vòi & Lăng phun D50/D65</a></li>
+            <li><a href="#products" class="hover:text-white transition-colors">Tủ & Kệ đựng bình chữa cháy</a></li>
+            <li><a href="#products" class="hover:text-white transition-colors">Mặt nạ thoát hiểm TZL30</a></li>
+          </ul>
+        </div>
+
+        <!-- Version Switch & Policies (4 cols) -->
+        <div class="md:col-span-4 space-y-4">
+          <h4 class="text-white font-bold text-sm uppercase tracking-wider">Tùy Chọn Giao Diện & Tiện Ích</h4>
+          <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-2.5">
+            <div class="text-slate-300 font-bold text-xs">Chuyển đổi giao diện:</div>
+            <a href="index.html" class="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-amber-400 font-bold text-xs border border-slate-700 transition-all w-full justify-center">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+              <span>Về Giao Diện 1.0 (Bản Gốc)</span>
+            </a>
+            <p class="text-[11px] text-slate-500">
+              Giao diện 2.0 cung cấp công cụ tính toán dự toán thiết bị và giỏ hàng tương tác nhanh.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-slate-500 text-[11px] gap-2">
+        <p>© 2024 PCCC24.COM - Bản quyền thuộc Công ty TNHH MTV Hoàng Quân Phát.</p>
+        <p>Tuân thủ tiêu chuẩn TCVN 3890 / TCVN 7026 và kiểm định Bộ Công An.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======================================================== -->
+  <!-- 9. SLIDE-OUT CART DRAWER & CHECKOUT MODAL -->
+  <!-- ======================================================== -->
+  <div id="cart-drawer-overlay" class="fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-50 hidden transition-opacity" onclick="toggleCartDrawer(false)"></div>
+  
+  <div id="cart-drawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 flex flex-col">
+    <!-- Cart Header -->
+    <div class="p-5 border-b border-slate-200 flex items-center justify-between bg-slate-900 text-white">
+      <div class="flex items-center gap-2">
+        <svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+        <h3 class="font-black text-base">Giỏ Hàng Đặt Mua Nhanh</h3>
+      </div>
+      <button onclick="toggleCartDrawer(false)" class="p-1 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <!-- Cart Item List -->
+    <div id="cart-items-container" class="flex-1 overflow-y-auto p-5 space-y-4">
+      <div class="text-center py-12 text-slate-400 text-sm">
+        <svg class="w-12 h-12 mx-auto text-slate-300 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+        Giỏ hàng của bạn đang trống.
+      </div>
+    </div>
+
+    <!-- Cart Footer & Quick Checkout -->
+    <div class="p-5 border-t border-slate-200 bg-slate-50 space-y-4">
+      <div class="flex items-baseline justify-between">
+        <span class="text-xs font-semibold text-slate-600 uppercase tracking-wider">Tổng tiền thanh toán:</span>
+        <span id="cart-drawer-total" class="text-2xl font-black text-red-600">0 đ</span>
+      </div>
+
+      <!-- Quick order contact input -->
+      <div class="space-y-2 pt-2">
+        <input type="text" id="order-phone" placeholder="Số điện thoại nhận hàng *" class="w-full px-3.5 py-2 text-xs rounded-xl border border-slate-300 focus:outline-none focus:border-red-500">
+        <input type="text" id="order-address" placeholder="Địa chỉ giao hàng (nội thành giao 2h)" class="w-full px-3.5 py-2 text-xs rounded-xl border border-slate-300 focus:outline-none focus:border-red-500">
+      </div>
+
+      <button onclick="submitCartOrder()" class="w-full py-3 rounded-xl fire-gradient fire-gradient-hover text-white text-xs font-bold shadow-lg shadow-red-600/30 transition-all flex items-center justify-center gap-2">
+        <span>Xác Nhận Đặt Hàng Ngay</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+      </button>
+      <p class="text-[10px] text-center text-slate-500">
+        Nhân viên PCCC24 sẽ gọi lại trong 5 phút để xác nhận đơn và kiểm tra tem kiểm định.
+      </p>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast-msg" class="fixed bottom-24 right-4 sm:bottom-6 sm:right-6 bg-slate-900 text-white px-4 py-3 rounded-xl shadow-2xl text-xs font-bold flex items-center gap-2 transform translate-y-20 opacity-0 transition-all duration-300 z-50 pointer-events-none border border-slate-700">
+    <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+    <span id="toast-text">Đã thêm vào giỏ hàng!</span>
+  </div>
+
+  <!-- Mobile Sticky Bottom Bar -->
+  <div class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-slate-200 p-2.5 flex items-center gap-2 z-40 lg:hidden shadow-lg">
+    <a href="tel:0968242424" class="flex-1 py-2.5 rounded-xl fire-gradient text-white text-xs font-bold text-center flex items-center justify-center gap-1.5 shadow-sm">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+      <span>Gọi 0968.24.24.24</span>
+    </a>
+    <button onclick="toggleCartDrawer(true)" class="flex-1 py-2.5 rounded-xl bg-slate-900 text-white text-xs font-bold text-center flex items-center justify-center gap-1.5">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+      <span>Giỏ hàng (<span id="mobile-cart-counter">0</span>)</span>
+    </button>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- 10. JAVASCRIPT LOGIC -->
+  <!-- ======================================================== -->
+  <script>
+    // State management
+    let cart = [];
+    let currentEstimatorType = 'house';
+
+    // Estimator configuration rules based on TCVN 3890
+    const estimatorRules = {
+      house: {
+        title: 'Gói An Toàn Nhà Phố / Chung Cư',
+        calculate: (area, floors) => {
+          const abc4kg = Math.max(1, Math.ceil(area / 60)) * floors;
+          const smokeAlarms = Math.max(1, Math.ceil(area / 70)) * floors;
+          const masks = Math.max(2, floors * 2);
+          return [
+            { id: 'mfzl4', name: 'Bình Bột Chữa Cháy ABC 4kg MFZL4', qty: abc4kg, price: 280000 },
+            { id: 'smoke_sensor', name: 'Đầu Báo Khói Độc Lập Không Dây', qty: smokeAlarms, price: 245000 },
+            { id: 'mask_tzl30', name: 'Mặt Nạ Phòng Độc Lọc Khói TZL30', qty: masks, price: 135000 }
+          ];
+        }
+      },
+      office: {
+        title: 'Gói Chuẩn Văn Phòng & Cửa Hàng',
+        calculate: (area, floors) => {
+          const abc4kg = Math.max(1, Math.ceil(area / 50)) * floors;
+          const co2 = Math.max(1, Math.ceil(area / 100)) * floors;
+          const smokeAlarms = Math.max(1, Math.ceil(area / 60)) * floors;
+          return [
+            { id: 'mfzl4', name: 'Bình Bột Chữa Cháy ABC 4kg MFZL4', qty: abc4kg, price: 280000 },
+            { id: 'mt3', name: 'Bình Khí Chữa Cháy CO2 3kg MT3', qty: co2, price: 390000 },
+            { id: 'smoke_sensor', name: 'Đầu Báo Khói Độc Lập', qty: smokeAlarms, price: 245000 }
+          ];
+        }
+      },
+      restaurant: {
+        title: 'Gói Nhà Hàng & Bếp Ăn Khách Sạn',
+        calculate: (area, floors) => {
+          const abc4kg = Math.max(2, Math.ceil(area / 50)) * floors;
+          const co2 = Math.max(2, Math.ceil(area / 80)) * floors;
+          const masks = Math.max(4, floors * 2);
+          return [
+            { id: 'mfzl4', name: 'Bình Bột Chữa Cháy ABC 4kg MFZL4', qty: abc4kg, price: 280000 },
+            { id: 'mt3', name: 'Bình Khí Chữa Cháy CO2 3kg MT3', qty: co2, price: 390000 },
+            { id: 'mask_tzl30', name: 'Mặt Nạ Thoát Hiểm TZL30', qty: masks, price: 135000 }
+          ];
+        }
+      },
+      factory: {
+        title: 'Gói Nhà Xưởng & Kho Hàng Tiêu Chuẩn',
+        calculate: (area, floors) => {
+          const abc4kg = Math.max(4, Math.ceil(area / 40)) * floors;
+          const co2 = Math.max(2, Math.ceil(area / 100)) * floors;
+          const cabinet = Math.max(2, Math.ceil(area / 150)) * floors;
+          const hose = Math.max(1, Math.ceil(area / 200)) * floors;
+          return [
+            { id: 'mfzl4', name: 'Bình Bột Chữa Cháy ABC 4kg MFZL4', qty: abc4kg, price: 280000 },
+            { id: 'mt3', name: 'Bình Khí Chữa Cháy CO2 3kg MT3', qty: co2, price: 390000 },
+            { id: 'cabinet', name: 'Tủ Đựng Thiết Bị PCCC Trong Nhà', qty: cabinet, price: 320000 },
+            { id: 'hose_d50', name: 'Cuộn Vòi Chữa Cháy D50 Kèm Khớp Nối', qty: hose, price: 520000 }
+          ];
+        }
+      }
+    };
+
+    function setEstimatorType(type) {
+      currentEstimatorType = type;
+      document.querySelectorAll('.type-btn').forEach(btn => {
+        btn.classList.remove('border-red-500', 'bg-red-600/20', 'text-white');
+        btn.classList.add('border-slate-700', 'bg-slate-800/80', 'text-slate-300');
+      });
+      const activeBtn = document.getElementById(`type-${type}`);
+      if (activeBtn) {
+        activeBtn.classList.remove('border-slate-700', 'bg-slate-800/80', 'text-slate-300');
+        activeBtn.classList.add('border-red-500', 'bg-red-600/20', 'text-white');
+      }
+      updateEstimator();
+    }
+
+    function updateEstimator() {
+      const area = parseInt(document.getElementById('area-slider').value);
+      const floors = parseInt(document.getElementById('floors-slider').value);
+      document.getElementById('area-val').textContent = area;
+      document.getElementById('floors-val').textContent = floors;
+
+      const rule = estimatorRules[currentEstimatorType];
+      document.getElementById('suggestion-title').textContent = rule.title;
+
+      const items = rule.calculate(area, floors);
+      let html = '';
+      let total = 0;
+
+      items.forEach(item => {
+        const itemTotal = item.qty * item.price;
+        total += itemTotal;
+        html += `
+          <div class="flex items-center justify-between py-1.5 border-b border-slate-700/50">
+            <span class="text-slate-200">${item.name} <strong class="text-amber-400">x${item.qty}</strong></span>
+            <span class="font-bold text-slate-300">${itemTotal.toLocaleString('vi-VN')} đ</span>
+          </div>
+        `;
+      });
+
+      document.getElementById('estimated-items').innerHTML = html;
+      document.getElementById('estimated-total-price').textContent = `${total.toLocaleString('vi-VN')} đ`;
+    }
+
+    function addEstimatorToCart() {
+      const area = parseInt(document.getElementById('area-slider').value);
+      const floors = parseInt(document.getElementById('floors-slider').value);
+      const items = estimatorRules[currentEstimatorType].calculate(area, floors);
+
+      items.forEach(item => {
+        addToCart({ id: item.id, name: item.name, price: item.price, qty: item.qty }, false);
+      });
+
+      showToast(`Đã thêm toàn bộ ${items.length} hạng mục dự toán vào giỏ hàng!`);
+      toggleCartDrawer(true);
+    }
+
+    // Cart Management
+    function addToCart(product, notify = true) {
+      const existing = cart.find(item => item.id === product.id);
+      if (existing) {
+        existing.qty += (product.qty || 1);
+      } else {
+        cart.push({ ...product, qty: product.qty || 1 });
+      }
+      renderCart();
+      if (notify) {
+        showToast(`Đã thêm "${product.name}" vào giỏ hàng!`);
+      }
+    }
+
+    function updateCartQty(id, delta) {
+      const item = cart.find(i => i.id === id);
+      if (!item) return;
+      item.qty += delta;
+      if (item.qty <= 0) {
+        cart = cart.filter(i => i.id !== id);
+      }
+      renderCart();
+    }
+
+    function renderCart() {
+      const container = document.getElementById('cart-items-container');
+      const counter = document.getElementById('cart-counter');
+      const mobileCounter = document.getElementById('mobile-cart-counter');
+      const drawerTotal = document.getElementById('cart-drawer-total');
+
+      const totalItems = cart.reduce((sum, i) => sum + i.qty, 0);
+      const totalPrice = cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
+
+      counter.textContent = totalItems;
+      mobileCounter.textContent = totalItems;
+      drawerTotal.textContent = `${totalPrice.toLocaleString('vi-VN')} đ`;
+
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-12 text-slate-400 text-sm">
+            <svg class="w-12 h-12 mx-auto text-slate-300 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+            Giỏ hàng của bạn đang trống.
+          </div>
+        `;
+        return;
+      }
+
+      let html = '';
+      cart.forEach(item => {
+        html += `
+          <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200 flex items-center justify-between gap-3">
+            <div class="flex-1">
+              <h4 class="text-xs font-bold text-slate-900 leading-snug">${item.name}</h4>
+              <div class="text-xs font-black text-red-600 mt-1">${(item.price * item.qty).toLocaleString('vi-VN')} đ</div>
+            </div>
+            <div class="flex items-center gap-2 bg-white border border-slate-200 rounded-lg p-1">
+              <button onclick="updateCartQty('${item.id}', -1)" class="w-6 h-6 rounded flex items-center justify-center text-slate-600 hover:bg-slate-100 font-bold">-</button>
+              <span class="text-xs font-bold w-4 text-center">${item.qty}</span>
+              <button onclick="updateCartQty('${item.id}', 1)" class="w-6 h-6 rounded flex items-center justify-center text-slate-600 hover:bg-slate-100 font-bold">+</button>
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+    }
+
+    function toggleCartDrawer(open) {
+      const drawer = document.getElementById('cart-drawer');
+      const overlay = document.getElementById('cart-drawer-overlay');
+      if (open) {
+        overlay.classList.remove('hidden');
+        drawer.classList.remove('translate-x-full');
+      } else {
+        overlay.classList.add('hidden');
+        drawer.classList.add('translate-x-full');
+      }
+    }
+
+    function submitCartOrder() {
+      if (cart.length === 0) {
+        alert('Giỏ hàng trống! Vui lòng chọn sản phẩm trước khi đặt hàng.');
+        return;
+      }
+      const phone = document.getElementById('order-phone').value.trim();
+      if (!phone) {
+        alert('Vui lòng nhập số điện thoại để nhân viên PCCC24 liên hệ xác nhận đơn.');
+        document.getElementById('order-phone').focus();
+        return;
+      }
+
+      alert(`Cảm ơn bạn! Đơn hàng gồm ${cart.length} loại thiết bị đã được gửi thành công. Nhân viên PCCC24 sẽ gọi số ${phone} trong 5 phút để xác nhận giao hàng.`);
+      cart = [];
+      renderCart();
+      toggleCartDrawer(false);
+    }
+
+    function filterProducts(category) {
+      document.querySelectorAll('.filter-tab-btn').forEach(btn => {
+        btn.classList.remove('bg-slate-900', 'text-white');
+        btn.classList.add('bg-white', 'text-slate-700');
+      });
+      const activeBtn = document.querySelector(`.filter-tab-btn[data-category="${category}"]`);
+      if (activeBtn) {
+        activeBtn.classList.add('bg-slate-900', 'text-white');
+        activeBtn.classList.remove('bg-white', 'text-slate-700');
+      }
+
+      document.querySelectorAll('.product-item-card').forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    function toggleFaq(button) {
+      const content = button.nextElementSibling;
+      const icon = button.querySelector('.faq-icon');
+      const isHidden = content.classList.contains('hidden');
+      
+      document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+      document.querySelectorAll('.faq-icon').forEach(i => i.textContent = '+');
+
+      if (isHidden) {
+        content.classList.remove('hidden');
+        icon.textContent = '−';
+      }
+    }
+
+    function showToast(text) {
+      const toast = document.getElementById('toast-msg');
+      document.getElementById('toast-text').textContent = text;
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      setTimeout(() => {
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 3000);
+    }
+
+    // Init on load
+    document.addEventListener('DOMContentLoaded', () => {
+      updateEstimator();
+      renderCart();
+    });
+  </script>
+</body>
+</html>
