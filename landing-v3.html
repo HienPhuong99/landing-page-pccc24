@@ -58,8 +58,14 @@
             Trực Quan
           </button>
         </div>
-        <a href="landing-v2.html" class="inline-flex items-center gap-1 text-slate-400 hover:text-amber-400 font-medium transition-colors bg-slate-900 px-2 py-1 rounded-md border border-slate-800">
-          <span>V2 (Catalog)</span>
+        <a href="portal.html" class="inline-flex items-center gap-1 text-slate-950 font-black transition-colors bg-amber-400 hover:bg-amber-300 px-2 py-1 rounded-md shadow-sm text-[11px]">
+          <span>🌐 Chọn 3 Cổng</span>
+        </a>
+        <a href="landing-v2.html" class="inline-flex items-center gap-1 text-slate-300 hover:text-white font-medium transition-colors bg-slate-900 px-2 py-1 rounded-md border border-slate-800 text-[11px]">
+          <span>V2 (Tra cứu)</span>
+        </a>
+        <a href="index.html" class="inline-flex items-center gap-1 text-slate-300 hover:text-white font-medium transition-colors bg-slate-900 px-2 py-1 rounded-md border border-slate-800 text-[11px]">
+          <span>V1 (Kho hàng)</span>
         </a>
         <a href="tel:0961599114" class="text-red-400 font-bold hover:text-red-300 transition-colors flex items-center gap-1">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
@@ -973,42 +979,42 @@
     // 6-step details data
     const stepData = {
       1: {
-        stepNum: 'BƯỚC 1',
+        stepNum: 'BƯỚC 1 / 6',
         title: 'Khảo sát, tư vấn & lập dự toán',
         icon: '📋',
         desc: 'Tiếp nhận yêu cầu và thông tin của khách hàng qua hotline 0961.599.114. Kỹ sư tại Hoàng Quân Phát sẽ tiến hành nhận bản vẽ kiến trúc hoặc đi khảo sát trực tiếp tại công trình.',
         action: 'Lên phương án, tư vấn và lập dự toán, trao đổi với chủ đầu tư về phương án trang bị hệ thống PCCC phù hợp cho công trình nhằm tối ưu chi phí.'
       },
       2: {
-        stepNum: 'BƯỚC 2',
+        stepNum: 'BƯỚC 2 / 6',
         title: 'Ký kết hợp đồng',
         icon: '🤝',
         desc: 'Chủ đầu tư chốt phương án và chi phí thi công hệ thống PCCC.',
         action: 'Thương thảo điều khoản tiến độ, bảo hành và tiến hành ký kết hợp đồng thi công chính thức.'
       },
       3: {
-        stepNum: 'BƯỚC 3',
+        stepNum: 'BƯỚC 3 / 6',
         title: 'Thiết kế & nộp hồ sơ thẩm định',
         icon: '📐',
         desc: 'Các kỹ sư tại PCCC Hoàng Quân Phát lên bản vẽ thiết kế chi tiết cho hệ thống PCCC của công trình theo đúng QCVN 10:2025/BCA.',
         action: 'Tiến hành nộp hồ sơ thẩm định thiết kế đối với công trình có quy mô thuộc diện và theo dõi kết quả thẩm duyệt.'
       },
       4: {
-        stepNum: 'BƯỚC 4',
+        stepNum: 'BƯỚC 4 / 6',
         title: 'Thi công lắp đặt hệ thống PCCC',
         icon: '🔨',
         desc: 'Lập tiến độ thi công chi tiết cho công trình. Tập kết, nhập vật tư - thiết bị PCCC đúng chủng loại, 100% có tem kiểm định Bộ Công An.',
         action: 'Hoàng Quân Phát tiến hành thi công hệ thống PCCC theo bản vẽ thiết kế và yêu cầu của chủ đầu tư. Đảm bảo thi công đúng tiến độ đã đề ra.'
       },
       5: {
-        stepNum: 'BƯỚC 5',
+        stepNum: 'BƯỚC 5 / 6',
         title: 'Chạy thử và nghiệm thu',
         icon: '✅',
         desc: 'Chạy thử và hướng dẫn chủ đầu tư vận hành, sử dụng hệ thống PCCC; thực hiện nghiệm thu nội bộ giữa 2 bên, đảm bảo hệ thống đúng phương án và thực hiện đúng quy định.',
         action: 'Bàn giao hồ sơ hoàn công và hệ thống PCCC hoàn chỉnh lại cho chủ đầu tư.'
       },
       6: {
-        stepNum: 'BƯỚC 6',
+        stepNum: 'BƯỚC 6 / 6',
         title: 'Bảo hành và bảo trì',
         icon: '🛡️',
         desc: 'Tiến hành bảo hành - bảo trì hệ thống PCCC định kỳ 6-12 tháng/lần.',
@@ -1016,23 +1022,40 @@
       }
     };
 
-    function setStep(stepNum) {
+    let currentStep = 1;
+    let autoPlayInterval = null;
+    let isPaused = false;
+    const STEP_DURATION = 5000; // 5 seconds per step
+
+    function setStep(stepNum, manual = false) {
+      currentStep = stepNum;
       document.querySelectorAll('.step-btn').forEach(btn => {
-        btn.classList.remove('bg-red-600', 'text-white');
+        btn.classList.remove('bg-red-600', 'text-white', 'ring-2', 'ring-red-400');
         btn.classList.add('bg-slate-800', 'text-slate-300');
       });
       const activeBtn = document.querySelector(`.step-btn[data-step="${stepNum}"]`);
       if (activeBtn) {
         activeBtn.classList.remove('bg-slate-800', 'text-slate-300');
-        activeBtn.classList.add('bg-red-600', 'text-white');
+        activeBtn.classList.add('bg-red-600', 'text-white', 'ring-2', 'ring-red-400');
       }
 
       const data = stepData[stepNum];
       document.getElementById('step-detail-card').innerHTML = `
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+        <!-- Auto Slide Progress Bar -->
+        <div class="absolute top-0 left-0 right-0 h-1.5 bg-slate-700/60 overflow-hidden">
+          <div id="step-progress-bar" class="h-full bg-gradient-to-r from-red-500 via-amber-400 to-red-500 w-0 transition-all duration-[5000ms] ease-linear"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center pt-2">
           <div class="md:col-span-8 space-y-3">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/20 text-red-400 text-xs font-black border border-red-500/30">
-              ${data.stepNum}
+            <div class="flex items-center justify-between flex-wrap gap-2">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/20 text-red-400 text-xs font-black border border-red-500/30">
+                ${data.stepNum}
+              </div>
+              <div class="flex items-center gap-2 text-[11px] text-slate-400">
+                <span class="inline-block w-2 h-2 rounded-full ${isPaused ? 'bg-amber-400' : 'bg-emerald-400 animate-pulse'}"></span>
+                <span>${isPaused ? 'Đang tạm dừng (Rê chuột)' : 'Tự động chuyển tiếp (5s)'}</span>
+              </div>
             </div>
             <h3 class="text-2xl font-black text-white">${data.title}</h3>
             <p class="text-sm text-slate-300 leading-relaxed">${data.desc}</p>
@@ -1040,13 +1063,66 @@
               <strong>Thực hiện:</strong> ${data.action}
             </div>
           </div>
-          <div class="md:col-span-4 flex flex-col items-center justify-center p-6 bg-slate-900/90 rounded-2xl border border-slate-700 text-center">
+          <div class="md:col-span-4 flex flex-col items-center justify-center p-6 bg-slate-900/90 rounded-2xl border border-slate-700 text-center relative overflow-hidden">
             <div class="text-6xl mb-3">${data.icon}</div>
             <div class="text-xs font-bold text-slate-400">PCCC HOÀNG QUÂN PHÁT</div>
             <div class="text-sm font-bold text-white mt-1">Cam Kết Tiến Độ 100%</div>
+            <div class="flex items-center gap-2 mt-4">
+              <button type="button" onclick="prevStep()" class="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-white text-xs border border-slate-700">◀ Trước</button>
+              <button type="button" onclick="toggleAutoPlay()" id="btn-toggle-play" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-white text-xs border border-slate-700 font-bold">${isPaused ? '▶ Tiếp tục' : '⏸ Dừng'}</button>
+              <button type="button" onclick="nextStep()" class="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-white text-xs border border-slate-700">Sau ▶</button>
+            </div>
           </div>
         </div>
       `;
+
+      // Trigger progress bar animation
+      setTimeout(() => {
+        const bar = document.getElementById('step-progress-bar');
+        if (bar && !isPaused) {
+          bar.style.width = '100%';
+        }
+      }, 50);
+
+      if (manual) {
+        restartAutoPlay();
+      }
+    }
+
+    function nextStep() {
+      currentStep = currentStep >= 6 ? 1 : currentStep + 1;
+      setStep(currentStep);
+    }
+
+    function prevStep() {
+      currentStep = currentStep <= 1 ? 6 : currentStep - 1;
+      setStep(currentStep);
+    }
+
+    function startAutoPlay() {
+      stopAutoPlay();
+      autoPlayInterval = setInterval(() => {
+        if (!isPaused) {
+          nextStep();
+        }
+      }, STEP_DURATION);
+    }
+
+    function stopAutoPlay() {
+      if (autoPlayInterval) {
+        clearInterval(autoPlayInterval);
+        autoPlayInterval = null;
+      }
+    }
+
+    function restartAutoPlay() {
+      stopAutoPlay();
+      startAutoPlay();
+    }
+
+    function toggleAutoPlay() {
+      isPaused = !isPaused;
+      setStep(currentStep);
     }
 
     function switchCategoryTab(catId) {
@@ -1116,6 +1192,18 @@
 
     document.addEventListener('DOMContentLoaded', () => {
       setStep(1);
+      startAutoPlay();
+
+      // Pause on hover
+      const card = document.getElementById('step-detail-card');
+      const stepper = document.getElementById('stepper-buttons');
+      
+      [card, stepper].forEach(el => {
+        if (el) {
+          el.addEventListener('mouseenter', () => { isPaused = true; });
+          el.addEventListener('mouseleave', () => { isPaused = false; });
+        }
+      });
     });
   </script>
 </body>
